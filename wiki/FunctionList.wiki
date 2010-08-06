@@ -1,5 +1,5 @@
+#summary 主要機能一覧
 #labels Phase-Design
-# 主要機能一覧
 
 == cloud center ==
  * 在庫問い合わせ、在庫一覧(PDF)
