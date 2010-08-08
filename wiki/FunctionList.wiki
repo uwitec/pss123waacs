@@ -1,6 +1,6 @@
 #summary 主要機能一覧
 #labels Phase-Design
-#sidebar TableOfContents
+
 == cloud center ==
  * 在庫問い合わせ、在庫一覧(PDF)
  * 在庫調整
