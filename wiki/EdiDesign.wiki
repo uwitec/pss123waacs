@@ -1,5 +1,4 @@
 #summary EDIサーバ、顧客、クラウドセンタとのデータ連携に関する機能記述
-
 #sidebar TableOfContents
 
 = EDIシステム =
