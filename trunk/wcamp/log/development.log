@@ -1,0 +1,160 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (50.6ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateShipOrders (20100808022901)
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "ship_orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "work_no" varchar(255), "work_line_no" varchar(255), "location" varchar(255), "goods_code" varchar(255), "waacs_code" varchar(255), "order_qty" float, "result_qty" float, "user_code" varchar(255), "start_at" datetime, "end_at" datetime, "goods_name" varchar(255), "delivery_name" varchar(255), "comment" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100808022901')[0m
+Migrating to CreateReceives (20100808022945)
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "receives" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "work_no" varchar(255), "waacs_code" varchar(255), "goods_code" varchar(255), "location" varchar(255), "announced_qty" float, "result_qty" float, "user_code" varchar(255), "goods_name" varchar(255), "comment" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100808022945')[0m
+Migrating to CreateInventories (20100808023120)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "inventories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "work_no" varchar(255), "location" varchar(255), "goods_code" varchar(255), "goods_name" varchar(255), "system_qty" float, "result_qty" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100808023120')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("inventories")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("receives")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("ship_orders")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateShipOrders (20100808022901)
+Migrating to CreateReceives (20100808022945)
+Migrating to CreateInventories (20100808023120)
+Migrating to CaseinCreateUsers (20100808051622)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "casein_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255) NOT NULL, "name" varchar(255), "email" varchar(255), "password" varchar(255) NOT NULL, "salt" varchar(255) NOT NULL, "access_level" integer DEFAULT 0 NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100808051622')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("casein_users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("inventories")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("receives")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("ship_orders")[0m
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" [0m
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT "casein_users".id FROM "casein_users" WHERE ("casein_users"."login" = 'admin') LIMIT 1[0m
+  [4;36;1mCaseinUser Create (1.8ms)[0m   [0;1mINSERT INTO "casein_users" ("name", "salt", "access_level", "created_at", "updated_at", "login", "password", "email") VALUES('Admin', 'bwVhZzHUX7', 0, '2010-08-08 05:19:40', '2010-08-08 05:19:40', 'admin', 'a8000676f222dd5202ee9f7be140fa15481b2ee4', 'yamada.masahiro@gmail.com')[0m
+Sent mail to yamada.masahiro@gmail.com
+
+Date: Sun, 8 Aug 2010 14:19:40 +0900
+From: donotreply@caseincms.com
+To: yamada.masahiro@gmail.com
+Subject: [Casein] New user account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Dear Admin,
+
+A new user account has been created for you at:
+
+http://localhost:3000/admin
+
+Login: admin
+Password: password
+
+From
+
+Casein
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-08-08 14:21:00) [GET]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 110ms (View: 13, DB: 1) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing CaseinController#index (for 127.0.0.1 at 2010-08-08 14:21:06) [GET]
+  [4;36;1mCaseinUser Load (0.1ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/casein_auth/login
+Filter chain halted as [:authorise] rendered_or_redirected.
+Completed in 133ms (DB: 0) | 302 Found [http://localhost/admin/]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-08-08 14:21:06) [GET]
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 79ms (View: 78, DB: 0) | 200 OK [http://localhost/casein_auth/login]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-08-08 14:21:12) [POST]
+  Parameters: {"commit"=>"Log in", "form_password"=>"password", "authenticity_token"=>"XDy/SMazIj2csCd74T+R23pYkAPMbNIA42jDxeTJRws=", "login"=>"admin"}
+  [4;35;1mCaseinUser Load (0.5ms)[0m   [0mSELECT * FROM "casein_users" WHERE (login = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/admin/
+Completed in 11ms (DB: 1) | 302 Found [http://localhost/casein_auth/login]
+
+
+Processing CaseinController#index (for 127.0.0.1 at 2010-08-08 14:21:12) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/casein/blank
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/admin/]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-08-08 14:21:12) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.5ms)
+Rendered casein_layouts/_right_navigation (0.6ms)
+Completed in 112ms (View: 102, DB: 0) | 200 OK [http://localhost/casein/blank]
+
+
+Processing CaseinUsersController#index (for 127.0.0.1 at 2010-08-08 14:21:15) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" ORDER BY login LIMIT 30 OFFSET 0[0m
+Rendering template within layouts/casein_main
+Rendering casein_users/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "casein_users" WHERE (access_level=0) [0m
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.2ms)
+Completed in 42ms (View: 30, DB: 1) | 200 OK [http://localhost/casein_users]
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-08-08 14:21:24) [GET]
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Completed in 12ms (View: 1, DB: 1) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing CaseinAuthController#logout (for 127.0.0.1 at 2010-08-08 14:22:12) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/casein_auth/login
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/casein_auth/logout]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-08-08 14:22:12) [GET]
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/casein_auth/login]
