@@ -1,0 +1,128 @@
+/* for InlandChargeMan */
+#menu {
+	padding : 5px;
+}
+
+body {
+	background: #EFEFEF;
+}
+
+
+#hd #bd {
+	background: #EFEFEF;
+}
+
+.yui-skin-sam .yui-navset .yui-content{
+	background: #EFEFEF;
+}
+
+.box {
+	margin  : 5px;
+	padding : 5px;
+	border  : 1px solid #FFF;
+}
+
+.box table th{
+	width : 60px;
+	padding-right : 5px;
+}
+
+.box table td{
+	padding-left : 2px;
+}
+
+.search {
+	margin  : 5px;
+	padding : 5px;
+	border  : 1px solid #666;
+}
+
+.list {
+	margin  : 5px;
+	padding : 0px;
+}
+
+.list table th{
+	background : #666;
+	color : #fff;
+	font-weight : bold;
+	padding : 3px;
+}
+
+.list table td{
+	padding : 2px;
+	border-bottom: 1px solid #666; 
+}
+
+.num {
+	text-align: right;
+}
+
+#menu {
+	float: right;	
+}
+
+#menu a {
+  text-decoration: none;
+	font-weight : bold;
+	margin : 0px;
+	padding : 0px;
+	padding-right : 3px;
+	padding-left : 3px;
+}
+
+#menu a:hover {
+	background : #666;
+	color : #fff;
+}
+
+#hd {
+	height: 60px;
+}
+
+#message {
+	padding: 25px 0px 5px 0px;
+}
+
+#message #error {
+	border-bottom: 2px solid #f48e8e;
+	border-top: 2px solid #f48e8e;
+	background: #f7b7b7;
+	padding: 5px;
+	font-size: 12px;
+	color: #801616;
+	margin: 0 0 20px 0;
+}
+
+#message #notice {
+	border-bottom: 2px solid #95ccef;
+	border-top: 2px solid #95ccef;
+	background: #d9ebf6;
+	padding: 5px;
+	font-size: 12px;
+	color: #245574;
+	margin: 0 0 20px 0;
+}
+
+#si_info table th{
+	width : 200px;
+	text-align : right;
+}
+
+.logo {
+	border-bottom : 3px solid red;
+}
+
+.big {
+	color : #5990CE;
+	font-size : 30px;
+	text-shadow: 2px 2px 3px black;
+	font-weight: bold;
+}
+.low {
+	color : black;
+	font-size : 24px;
+	/* text-shadow: 3px 3px 5px black; */
+	font-weight: bold;
+}
+
