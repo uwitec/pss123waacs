@@ -1,0 +1,10 @@
+<table>
+	<thead>
+		<%= render :partial => "order_head" %>	
+	</thead>
+	<tbody>
+	<% for order in @orders %>
+		<%= render :partial => "order_item", :locals => {:order => order} %>	
+	<% end %>
+	</tbody>
+</table>

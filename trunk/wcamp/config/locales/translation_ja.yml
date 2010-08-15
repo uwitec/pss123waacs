@@ -1,0 +1,46 @@
+ja: 
+  activerecord: 
+    models: 
+      inventory: "inventory"  #g
+      receive: "受信"  #g
+      ship_order: "ship_order"  #g
+
+    attributes: 
+      inventory: 
+        work_no: "work_no"  #g
+        location: "location"  #g
+        goods_code: "goods_code"  #g
+        goods_name: "goods_name"  #g
+        system_qty: "system_qty"  #g
+        result_qty: "result_qty"  #g
+
+      receive: 
+        work_no: "work_no"  #g
+        waacs_code: "waacs_code"  #g
+        goods_code: "goods_code"  #g
+        location: "location"  #g
+        announced_qty: "発表個数"  #g
+        result_qty: "結果個数"  #g
+        user_code: "ユーザコード"  #g
+        goods_name: "商品名"  #g
+        comment: "コメント"  #g
+
+      ship_order: 
+        work_no: "work_no"  #g
+        work_line_no: "work_line_no"  #g
+        location: "location"  #g
+        goods_code: "goods_code"  #g
+        waacs_code: "waacs_code"  #g
+        order_qty: "注文数量"  #g
+        result_qty: "result_qty"  #g
+        user_code: "user_code"  #g
+        start_at: "start_at"  #g
+        end_at: "end_at"  #g
+        goods_name: "goods_name"  #g
+        delivery_name: "配信名"  #g
+        comment: "コメント"  #g
+
+  label: 
+    ship_order: 
+      work_line_no: "作業ラインは"  #g
+
