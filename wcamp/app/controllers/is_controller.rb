@@ -3,4 +3,7 @@ class IsController < ApplicationController
 		@title = "テスト"
   end
 
+	def clock
+		@title = "テスト"
+	end
 end
