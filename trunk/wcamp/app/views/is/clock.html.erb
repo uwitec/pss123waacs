@@ -1,17 +1,15 @@
 <!doctype html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>jQTouch &beta;</title>
-        <style type="text/css" media="screen">@import "../../jqtouch/jqtouch.css";</style>
-        <style type="text/css" media="screen">@import "../../themes/apple/theme.css";</style>
-        <script src="../../jqtouch/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+	<%= javascript_include_tag "/jqtouch/jqtouch/jquery-1.4.2.js" %>
+	<%= javascript_include_tag "/jqtouch/jqtouch/jqtouch.js" %>
+	<%= stylesheet_link_tag "/jqtouch/jqtouch/jqtouch.css" %>
+	<%= stylesheet_link_tag "/jqtouch/themes/jqt/theme.css" %>
+	<%= stylesheet_link_tag "clock.css" %>
         <!-- 
             jQTouch Clock Demo
             All custom code is embedded below:
         -->
-        <link rel="stylesheet" href="clock.css" type="text/css" media="screen" charset="utf-8" />
         <script type="text/javascript" charset="utf-8">
             $.jQTouch({
                 icon: 'icon.png',
