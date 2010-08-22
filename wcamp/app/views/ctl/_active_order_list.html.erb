@@ -1,0 +1,19 @@
+<div class="list">
+<table width="100%">
+	<thead>
+		<tr>
+			<th><%= t 'label.ship_order.work_no' %></th>
+			<th><%= t 'label.ship_order.status' %></th>
+			<th><%= t 'label.ship_order.order_lines' %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for work_order in @active_orders %>
+			<tr>
+				<td><%= work_order.work_no %></td>
+				<td><%= work_order.status %></td>
+				<td class="num"><%= work_order.order_lines %></td>
+		<% end %>
+	</tbody>
+</table>
+</div>
