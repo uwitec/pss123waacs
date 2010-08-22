@@ -1,0 +1,12 @@
+<div class="list">
+<table width="100%">
+	<thead>
+		<%= render :partial => "work_order_head" %>	
+	</thead>
+	<tbody>
+	<% for work_order in @work_orders %>
+		<%= render :partial => "work_order_item", :locals => {:work_order => work_order} %>	
+	<% end %>
+	</tbody>
+</table>
+</div>

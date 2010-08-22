@@ -14,6 +14,7 @@ class CreateShipOrders < ActiveRecord::Migration
 			t.string :goods_name
 			t.string :delivery_name
 			t.string :comment
+			t.string :status
       t.timestamps
     end
   end

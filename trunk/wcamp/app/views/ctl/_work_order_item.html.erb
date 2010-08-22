@@ -1,0 +1,11 @@
+<tr>
+	<td><%= work_order.work_no %></td>
+	<td><%= work_order.delivery_name %></td>
+	<td class="num"><%= work_order.order_lines %></td>
+	<td><%= work_order.status %></td>
+	<td><%= work_order.start_at.to_s %></td>
+	<td><%= work_order.end_at.to_s %></td>
+	<td><%= work_order.device %></td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="<%= 'work_order_' + work_order.id.to_s %>"></tr>

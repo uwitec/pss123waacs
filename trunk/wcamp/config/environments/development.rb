@@ -15,3 +15,10 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+
+config.after_initialize do 
+	$IMPORT_DIR = RAILS_ROOT + '/tmp'
+	$EXPORT_DIR = RAILS_ROOT + '/tmp'
+	$BACKUP_DIR = RAILS_ROOT
+	$USR_DIR = RAILS_ROOT + '/tmp'
+end
