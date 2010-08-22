@@ -26,3 +26,10 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+config.after_initialize do 
+	$IMPORT_DIR = RAILS_ROOT + '/tmp'
+	$EXPORT_DIR = RAILS_ROOT + '/tmp'
+	$BACKUP_DIR = RAILS_ROOT
+	$USR_DIR = RAILS_ROOT + '/tmp'
+end

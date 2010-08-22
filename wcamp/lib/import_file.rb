@@ -1,6 +1,7 @@
 module ImportFile
-	require "csv"
-	require "check_value"
+	require 'csv'
+	require 'kconv'
+	require 'check_value'
 	include CheckValue
 	
 	def config_file_name
@@ -109,7 +110,7 @@ module ImportFile
 
 	# helper
 	def make_import_template
-		escape = %w(created_at updated_at created_on updated_on)
+		escape = %w(created_at updated_at created_on updated_on id)
 		yml_file = RAILS_ROOT + '/config/import_file/' + self.class.to_s.underscore + '.yml'
 		File.open(yml_file, 'w') do |f|
 			f.write <<_END1
@@ -120,13 +121,39 @@ common :
   file_type : fix
 format :
 _END1
-			columns = self.attributes.map{|a| a[0] unless escape.include?(a[0])}.uniq.compact.sort
-			columns.each do 
+			columns = self.class.columns.map{|a| a.name unless escape.include?(a.name)}.uniq.compact
+			columns.each do |a|
 				f.write <<_END2
-#{a} :
-  start  :
-  size   :
-  action :
+  #{a} :
+    start  :
+    size   :
+    action :
+_END2
+			end
+		end
+	end
+	
+	def make_import_template_for_csv
+		escape = %w(created_at updated_at created_on updated_on id)
+		yml_file = RAILS_ROOT + '/config/import_file/' + self.class.to_s.underscore + '.yml'
+		File.open(yml_file, 'w') do |f|
+			f.write <<_END1
+common :
+  name : #{self.class.to_s.underscore}
+  total_size :
+  check_integer_position :
+  file_type : csv
+format :
+_END1
+			columns = self.class.columns.map{|a| a.name unless escape.include?(a.name)}.uniq.compact
+			n = 0
+			columns.each do |a|
+				n += 1
+				f.write <<_END2
+  #{a} :
+    index  : #{n}
+    value  :
+    action :
 _END2
 			end
 		end

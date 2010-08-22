@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100808051622) do
+ActiveRecord::Schema.define(:version => 20100822020749) do
 
   create_table "casein_users", :force => true do |t|
     t.string   "login",                       :null => false
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(:version => 20100808051622) do
     t.string   "goods_name"
     t.string   "delivery_name"
     t.string   "comment"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "waacs_codes", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.string   "device"
+    t.string   "device_code"
+    t.string   "logic"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
