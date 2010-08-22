@@ -7,11 +7,12 @@ class ShipController < CaseinController #ApplicationController
   end
 
 	def list
+		@work_orders = WorkOrder.find(:all)
 		@orders = ShipOrder.find(:all, :conditions => {:work_no => @work_no})
 	end
 
 	def search
-		@work_no = params[:work_no]
+		@work_no = params[:search]
 		render_page
 	end
 

@@ -39,8 +39,3 @@ ja:
         goods_name: "goods_name"  #g
         delivery_name: "配信名"  #g
         comment: "コメント"  #g
-
-  label: 
-    ship_order: 
-      work_line_no: "作業ラインは"  #g
-
