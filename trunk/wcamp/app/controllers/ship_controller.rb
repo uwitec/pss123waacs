@@ -1,5 +1,5 @@
 class ShipController < CaseinController #ApplicationController
-	layout 'ship'
+	layout 'wcamp'
 	
   def index
 		@work_no = ''	

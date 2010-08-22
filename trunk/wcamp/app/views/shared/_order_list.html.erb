@@ -1,0 +1,30 @@
+<td colspan="8">
+<div class="list">
+<table width="100%">
+	<thead>
+<tr>
+	<th><%= t 'label.ship_order.work_line_no' %></th>	
+	<th><%= t 'label.ship_order.location' %></th>	
+	<th><%= t 'label.ship_order.goods_code' %></th>	
+	<th><%= t 'label.ship_order.goods_name' %></th>	
+	<th><%= t 'label.ship_order.order_qty' %></th>	
+	<th><%= t 'label.ship_order.result_qty' %></th>	
+	<th><%= link_to_remote "[X]", :url => {:action => "close", :id => work_order} %></th>
+</tr>
+	</thead>
+	<tbody>
+	<% for order in work_order.ship_orders %>
+<tr>
+	<td class="num"><%= order.work_line_no %></td>
+	<td><%= order.location %></td>
+	<td><%= order.goods_code %></td>
+	<td><%= order.goods_name %></td>
+	<td class="num"><%= order.order_qty %></td>
+	<td class="num"><%= order.result_qty %></td>
+	<td><%= check_box_tag 'fixed' %></td>
+</tr>
+	<% end %>
+	</tbody>
+</table>
+</div>
+</td>
