@@ -1,4 +1,21 @@
-<table>
+<div class="box">
+<table width="100%">
+	<tr>
+		<td width="15%"><%= t 'label.ship_order.work_no' %></td>
+		<td><%= @orders.map{|w| w.work_no }.uniq.compact.join('/') %></td>
+	</tr>
+	<tr>
+		<td><%= t('label.ship_order.user_code') %></td>
+		<td><%= @orders.map{|w| w.user_code }.uniq.compact.join('/') %></td>
+	</tr>
+	<tr>
+		<td><%= t('label.ship_order.delivery_name') %></td>
+		<td><%= @orders.map{|w| w.delivery_name }.uniq.compact.join('/') %></td>
+	</tr>
+</table>
+</div>
+<div class="list">
+<table width="100%">
 	<thead>
 		<%= render :partial => "order_head" %>	
 	</thead>
@@ -8,3 +25,4 @@
 	<% end %>
 	</tbody>
 </table>
+</div>
