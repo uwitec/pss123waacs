@@ -9,6 +9,7 @@
 	<th><%= t 'label.ship_order.goods_name' %></th>	
 	<th><%= t 'label.ship_order.order_qty' %></th>	
 	<th><%= t 'label.ship_order.result_qty' %></th>	
+	<th><%= t 'label.ship_order.status' %></th>	
 	<th><%= link_to_remote "[X]", :url => {:action => "close", :id => work_order} %></th>
 </tr>
 	</thead>
@@ -21,7 +22,8 @@
 	<td><%= order.goods_name %></td>
 	<td class="num"><%= order.order_qty %></td>
 	<td class="num"><%= order.result_qty %></td>
-	<td><%= check_box_tag 'fixed' %></td>
+	<td><%= order.status %></td>
+	<td>&nbsp;</td>
 </tr>
 	<% end %>
 	</tbody>

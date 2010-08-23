@@ -30,7 +30,7 @@ class CtlController < CaseinController #ApplicationController
 	def close
 		work_order = WorkOrder.find(params[:id].to_i)
 		render :update do |page|
-			page.replace_html "work_order_#{work_order.id}", ""
+			page.replace_html "work_order_#{work_order.id}", '<td colspan="8" style="padding:0px;margin:0px;border:0px;"></td>'
 		end
 	end
 	
