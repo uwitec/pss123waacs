@@ -3,12 +3,12 @@ module CaseinConfigHelper
 	# Text string containing the name of the website or client
 	# Used in text and titles throughout Casein
   def casein_config_website_name
-  	'Casein'
+  	'WAACS'
   end
 
 	# URL to the logo used for the login screen and top banner - it should be a transparent PNG
   def casein_config_logo
-  	'/casein/images/casein.png'
+  	'/images/logo_ss.jpg'
   end
 
 	# The server hostname where Casein will run

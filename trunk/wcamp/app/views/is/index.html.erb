@@ -5,7 +5,7 @@
 	<%= javascript_include_tag "/jqtouch/jqtouch/jquery-1.4.2.js" %>
 	<%= javascript_include_tag "/jqtouch/jqtouch/jqtouch.js" %>
 	<%= stylesheet_link_tag "/jqtouch/jqtouch/jqtouch.css" %>
-	<%= stylesheet_link_tag "/jqtouch/themes/apple/theme.css" %>
+	<%= stylesheet_link_tag "/jqtouch/themes/jqt/theme.css" %>
 	<script type="text/javascript" charset="utf-8">
 		$.jQTouch();
 	</script>
@@ -14,27 +14,22 @@
 <body>
 	<div id="jqt">
 		<div id="home">
-			<ul>
-				<li><a>li&nbsp;<%= @title %></a></li>
-				<li class="arrow"><a>class=&quot;arrow&quot;</a></li>
-				<li><a>counter</a><small class="counter">3</small></li>
-				<li class="arrow">
-					<a href=#demos">class="&quot;arrow&quot; + counter</a><small class="counter">2</small>
-				</li>
-				<li class="forward"><a href="#demos">class=&quot;forward&quot;</a></li>
-			</ul>
-	
-			<h2>ul.form</h2>
-			<ul class="form">
-				<li><a>li</a></li>
-			</ul>
-	
-			<h2>ul.individual</h2>
 			<ul class="individual">
-				<li><a>リンク有</a></li>
-				<li>リンク無</li>
+				<li><a>本日分</a></li>
+				<li><a>出荷残</a></li>
 			</ul>
-		</div>	
+			<div id="work">
+			</div>
+			<ul>
+				<% for order in @work_orders %>
+				<li class="arrow">
+					<%= link_to_remote order.work_no, :url => {:action => 'picking', :id => order.id} %>
+					<%= order.status %>
+					<small class="counter"><%= order.order_lines %></small>
+				</li>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>
