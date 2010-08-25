@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100822020749) do
+ActiveRecord::Schema.define(:version => 20100825151404) do
 
   create_table "casein_users", :force => true do |t|
     t.string   "login",                       :null => false
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(:version => 20100822020749) do
     t.string   "password",                    :null => false
     t.string   "salt",                        :null => false
     t.integer  "access_level", :default => 0, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "edi_files", :force => true do |t|
+    t.string   "class_name"
+    t.string   "edi_code"
+    t.string   "file_path"
+    t.datetime "edi_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
