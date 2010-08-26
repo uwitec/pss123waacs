@@ -1,13 +1,6 @@
-|
-<%= link_to "出荷検品", :controller => "ship" %>
-|
-<%= link_to "作業監視", :controller => "ctl" %>
-|
-<%= link_to "EDI/物流機器" , :controller => "edi" %>
-|
-<%= link_to "クラウドセンタ" , :controller => "mon" %>
-|
-<%= link_to "システム管理" , :controller => "casein" %>
-|
+<%= link_menu_to "出荷検品", { :controller => "ship" } %>
+<%= link_menu_to "作業監視", { :controller => "ctl" } %>
+<%= link_menu_to "EDI/物流機器" , { :controller => "edi" }  %>
+<%= link_menu_to "クラウドセンタ" , { :controller => "mon" } %>
+<%= link_menu_to "システム管理" , { :controller => "casein" } %>
 <%= link_to 'Logout', :controller => :casein_auth, :action => :logout %>
-|

@@ -8,6 +8,7 @@
 	<%= stylesheet_link_tag 'grids', :media => "all" %>
 	<%= stylesheet_link_tag 'error' %>
 	<%= stylesheet_link_tag 'wcamp' %>
+	<%= stylesheet_link_tag 'topnav' %>
 	<%= javascript_include_tag :defaults %>
 	<%= javascript_include_tag casein_config_javascript_includes, :cache => "casein_main_javascripts" %>
 	<%= calendar_date_select_includes 'red' %>
@@ -17,7 +18,7 @@
 <body class="yui-skin-sam">
 	<div class="yui3-d2f">
 		<div id="hd">
-			<div id="menu">
+			<div id="topnav">
 				<%= render :partial => "shared/menu" %>
 			</div>
 			<div id="message">
