@@ -1,7 +1,4 @@
-/* for InlandChargeMan */
-#menu {
-	padding : 5px;
-}
+/* for wcamp */
 
 body {
 	background: #E0E0E0;
@@ -75,6 +72,7 @@ body {
 }
 
 #menu {
+	padding : 5px;
 	float: right;	
 }
 
