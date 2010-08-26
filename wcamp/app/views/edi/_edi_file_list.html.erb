@@ -1,0 +1,25 @@
+<div class="list">
+<table width="100%">
+	<thead>
+		<tr>
+			<th><%= t('edi_file.class_name') %></th>
+			<th><%= t('edi_file.edi_code') %></th>
+			<th><%= t('edi_file.file_path') %></th>
+			<th><%= t('edi_file.edi_at') %></th>
+			<th><%= t('edi_file.show_status') %></th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for edi_file in @edi_files %>
+			<tr>
+				<td><%= edi_file.show_class_name %></td>
+				<td><%= edi_file.edi_code %></td>
+				<td><%= link_to 'Download', :url => {:action => 'download', :file => edi_file.file_path } %></td>
+				<td><%= edi_file.edi_at.to_s %></td>
+				<td><%= edi_file.show_status %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>
