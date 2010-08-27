@@ -151,6 +151,7 @@ ja:
       inventory: "在庫" 
       receive: "入荷" 
       ship_order: "出荷指示"
+      edi_file: "電子データ交換"
 
     attributes: 
       inventory: 
@@ -163,14 +164,14 @@ ja:
 
       receive: 
         work_no: "管理番号"
-        waacs_code: "waacs_code"  #g
+        waacs_code: "waacs_code"  
         goods_code: "商品コード"
         location: "ロケーション"
-        announced_qty: "発表個数"  #g
-        result_qty: "結果個数"  #g
-        user_code: "ユーザコード"  #g
-        goods_name: "商品名"  #g
-        comment: "コメント"  #g
+        announced_qty: "予定数" 
+        result_qty: "結果数" 
+        user_code: "ユーザコード" 
+        goods_name: "商品名" 
+        comment: "備考" 
 
       ship_order: 
         work_no: "出荷管理番号"
@@ -187,14 +188,21 @@ ja:
         delivery_name: "配送先"
         comment: "備考"
 
+      edi_file:
+        class_name: "種別"
+        edi_code: "ファイルID"
+        file_path: "EDIファイル"
+        show_status: "ステータス"
+        edi_at: "実行時刻"
+
   label: 
       ship_order: 
         work_no: "出荷管理番号"
         work_line_no: "行#"
         location: "ロケーション"
         goods_code: "商品コード"
-        waacs_code: "waacs_code"  #g
-        order_qty: "注文数量"  #g
+        waacs_code: "WAACSコード"  
+        order_qty: "注文数量"  
         result_qty: "出荷数量"
         user_code: "作業者ID"
         start_at: "開始時間"
@@ -204,4 +212,30 @@ ja:
         comment: "備考"
         order_lines: "出荷行数"
         status: "状態"
+        device: "物流機器"
+
+      receive: 
+        work_no: "管理番号"
+        waacs_code: "WAACSコード"  
+        goods_code: "商品コード"
+        location: "ロケーション"
+        announced_qty: "予定数" 
+        result_qty: "結果数" 
+        user_code: "ユーザコード" 
+        goods_name: "商品名" 
+        comment: "備考" 
+
+      edi:
+        class_name: "種別"
+        status: "ステータス"
+        last_edi_status: "最新ステータス"
+        last_edi_at: "最新実行時刻"
+        rake_name: "手動実施"
+
+      edi_file:
+        class_name: "種別"
+        edi_code: "ファイルID"
+        file_path: "EDIファイル"
+        show_status: "ステータス"
+        edi_at: "実行時刻"
         device: "物流機器"
