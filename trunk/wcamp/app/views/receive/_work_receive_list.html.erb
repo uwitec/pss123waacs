@@ -1,0 +1,19 @@
+<div class="list">
+<table width="100%">
+	<thead>
+		<tr>
+			<th><%= t 'label.receive.work_no' %></th>
+			<th><%= t 'label.receive.status' %></th>
+			<th><%= t 'label.receive.order_lines' %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for work_receive in @work_receives %>
+			<tr>
+				<td><%= work_receive.work_no %></td>
+				<td><%= work_receive.status %></td>
+				<td class="num"><%= work_receive.receive_lines %></td>
+		<% end %>
+	</tbody>
+</table>
+</div>
