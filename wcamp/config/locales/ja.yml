@@ -224,6 +224,8 @@ ja:
         user_code: "ユーザコード" 
         goods_name: "商品名" 
         comment: "備考" 
+        status: "状態"
+        order_lines: "入荷行数"
 
       edi:
         class_name: "種別"

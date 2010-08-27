@@ -1,0 +1,8 @@
+<tr>
+	<td><%= receive.goods_code %></td>
+	<td><%= receive.goods_name %></td>
+	<td><%= text_field :receive, :location, :size => 20 %></td>
+	<td class="num"><%= receive.announced_qty %></td>
+	<td class="num"><%= text_field :receive, :result_qty, :size => 5 %></td>
+	<td><%= check_box_tag 'fixed' %></td>
+</tr>

@@ -1,0 +1,14 @@
+<div class="box">
+</div>
+<div class="list">
+<table width="100%">
+	<thead>
+		<%= render :partial => "receive_head" %>	
+	</thead>
+	<tbody>
+	<% for receive in @receives %>
+		<%= render :partial => "receive_item", :locals => {:receive => receive} %>	
+	<% end %>
+	</tbody>
+</table>
+</div>
