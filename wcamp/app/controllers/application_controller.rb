@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+	before_filter :find_keyword
+	
+	def find_keyword
+		@keyword = (session[:keyword] ||= Keyword.new)
+	end
 end

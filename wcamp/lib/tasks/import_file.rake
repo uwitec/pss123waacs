@@ -6,3 +6,11 @@ task :import_ship_order_file => :environment do
 	end
 	ShipOrder.new.import_file(import_file)	
 end
+
+task :import_receive_file => :environment do
+	import_file = $IMPORT_DIR + '/' + 'receives.csv'
+	if RAILS_ENV == 'development'
+		FileUtils.cp RAILS_ROOT + '/test/fixtures/' + 'receives.csv', import_file
+	end
+	Receive.new.import_file(import_file)
+end
