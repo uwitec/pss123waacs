@@ -1,6 +1,8 @@
 <% form_remote_tag :url => "/receive/search/" do %>	
-<%= t 'label.receive.work_no' %>&nbsp;,&nbsp;
-<%= t 'label.receive.goods_code' %>
+<%= t 'label.receive.work_no' %>,
+<%= t 'label.receive.goods_code' %>,
+<%= t 'label.receive.goods_name' %>,
+<%= t 'label.receive.supplier' %>
 <%= text_field :keyword, :search, :size => 30 %>
 <%= submit_tag "検索" %>
 <% end %>

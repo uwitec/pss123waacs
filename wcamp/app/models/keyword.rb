@@ -16,7 +16,7 @@ class Keyword
 	def search_receive_conditions
 		conditions = []
 		unless [nil,''].include?(self.search)
-			joined_col_name = 'work_no || goods_code'
+			joined_col_name = 'work_no || goods_code || goods_name || supplier'
 			searchs = Array.new
 			searchs = self.search.to_s.split(/&/)	
 			searchs.each do |word|
