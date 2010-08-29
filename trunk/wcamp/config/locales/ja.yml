@@ -201,6 +201,8 @@ ja:
         check_all: "全て選択"
         uncheck_all: "全て外す"
         set_all: "指示と同数をセット"
+        show_fixed: "検品済も表示"
+        new_line: "新規登録"
 
       ship_order: 
         work_no: "出荷管理番号"
@@ -232,7 +234,7 @@ ja:
         goods_name: "商品名" 
         comment: "備考" 
         status: "状態"
-        order_lines: "入荷行数"
+        order_lines: "行数"
 
       edi:
         class_name: "種別"

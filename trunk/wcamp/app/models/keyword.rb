@@ -1,6 +1,6 @@
 class Keyword
 	KEYS = (
-		%w(search)
+		%w(search show_fixed)
 	).freeze
 	
 	KEYS.each{|key| eval("attr_accessor :#{key}")}
@@ -26,6 +26,7 @@ class Keyword
 				conditions.push(joined_col_name + " like '%#{search}%'")
 			end
 		end
+		conditions.push("status not in('50','90')") if [nil,'',0,'0'].include?(self.show_fixed)
 		conditions.join(" and ")
 	end	
 end
