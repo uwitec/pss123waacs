@@ -3,8 +3,8 @@
 	<td><%= work_order.delivery_name %></td>
 	<td class="num"><%= work_order.order_lines %></td>
 	<td><%= work_order.status %></td>
-	<td><%= work_order.start_at.to_s %></td>
-	<td><%= work_order.end_at.to_s %></td>
+	<td><%= show_datetime work_order.start_at %></td>
+	<td><%= show_datetime work_order.end_at %></td>
 	<td><%= work_order.device %></td>
 	<td>&nbsp;</td>
 </tr>

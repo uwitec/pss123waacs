@@ -22,6 +22,7 @@ class ShipController < CaseinController #ApplicationController
 			next if [nil,''].include?(r[:id])
 			order = ShipOrder.find(r[:id].to_i)
 			order.result_qty = r[:result_qty].to_i
+			order.end_at = DateTime.now
 			order.status = '50'
 			order.save
 		end
@@ -33,6 +34,7 @@ class ShipController < CaseinController #ApplicationController
 		orders = ShipOrder.find(:all, :conditions => @keyword.search_shipping_conditions)
 		orders.each do |order|
 			order.result_qty = order.order_qty
+			order.start_at = DateTime.now
 			order.status = '40'
 			order.save
 		end	
