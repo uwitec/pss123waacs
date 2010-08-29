@@ -19,4 +19,8 @@ class ShipOrder < ActiveRecord::Base
 		#wc = WaccsCode.find_by_code(self.waacs_code)
 		#wc.nil? ? '-' : wc.device
 	end
+	
+	def show_status
+		(r = ShipOrder::STATUS_TYPE.rassoc(self.status)) ? r[0] : '未処理'
+	end
 end

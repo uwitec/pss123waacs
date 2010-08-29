@@ -7,11 +7,11 @@ class ReceiveController < CaseinController # ApplicationController
   end
 
 	def list
-		@work_receives = WorkReceive.find(:all)
+		@work_receives = WorkReceive.find(:all, :order => 'max_status')
 		@receives = Receive.paginate(
 			:page => params[:page],
 			:conditions => @keyword.search_receive_conditions,
-			:per_page => 3)
+			:per_page => 4)
 	end
 
 	def search

@@ -18,7 +18,9 @@ class WorkOrder < ActiveRecord::Base
 	end
 
 	def status
-		ship_orders.map{|s| s.status}.uniq.compact.join(" ")	
+		e = ship_orders.map{|r| r.show_status}
+		statuses = e.uniq.map{|x| [x, e.map{|y| y if y == x}.compact.size]}
+		statuses.map{|s| s[0] + '(' + s[1].to_s + ')'}.join(" ")	
 	end
 
 	def device
