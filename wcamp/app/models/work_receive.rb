@@ -13,7 +13,9 @@ class WorkReceive < ActiveRecord::Base
 	end
 
 	def status
-		receives.map{|r| r.status}.uniq.compact.join(" ")
+		e = receives.map{|r| r.show_status}
+		statuses = e.uniq.map{|x| [x, e.map{|y| y if y == x}.compact.size]}
+		statuses.map{|s| s[0] + '(' + s[1].to_s + ')'}.join(" ")	
 	end
 
 	def receive_lines

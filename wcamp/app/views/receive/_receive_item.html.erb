@@ -1,11 +1,11 @@
 <tr>
 	<td><%= receive.work_no %></td>
 	<td><%= receive.supplier %></td>
-	<td><%= receive.goods_code %></td>
-	<td><%= receive.goods_name %></td>
+	<td><%= receive.goods_code %><br/>
+	<%= receive.goods_name %></td>
 	<td><%= text_field_tag 'receives[][location]', receive.location, :size => 10 %></td>
 	<td class="num"><%= receive.announced_qty %></td>
 	<td class="num"><%= text_field_tag 'receives[][result_qty]', receive.result_qty, :size => 5 %></td>
-	<td><%= receive.status %></td>
+	<td><%= receive.show_status %></td>
 	<td><%= check_box_tag 'receives[][id]', receive.id %></td>
 </tr>

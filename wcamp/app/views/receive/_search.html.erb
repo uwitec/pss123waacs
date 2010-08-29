@@ -4,5 +4,7 @@
 <%= t 'label.receive.goods_name' %>,
 <%= t 'label.receive.supplier' %>
 <%= text_field :keyword, :search, :size => 30 %>
+<%= t 'label.form.show_fixed' %>
+<%= check_box :keyword, :show_fixed, :value => '1' %>
 <%= submit_tag "検索" %>
 <% end %>

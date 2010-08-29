@@ -4,7 +4,6 @@
 		<tr>
 			<th><%= t 'label.receive.work_no' %></th>
 			<th><%= t 'label.receive.status' %></th>
-			<th><%= t 'label.receive.order_lines' %></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -12,7 +11,6 @@
 			<tr>
 				<td><%= link_to_remote work_receive.work_no, :url => {:action => 'search', :search => work_receive.work_no} %></td>
 				<td><%= work_receive.status %></td>
-				<td class="num"><%= work_receive.receive_lines %></td>
 		<% end %>
 	</tbody>
 </table>
