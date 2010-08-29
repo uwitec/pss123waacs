@@ -1,5 +1,18 @@
 <div class="box">
 </div>
+<% form_remote_tag :url => {:action => 'confirm'} do %> 
+<h3>
+<%= submit_tag t('label.form.confirm') %>
+&nbsp;&nbsp;
+&nbsp;|&nbsp;
+<%= link_to_function t('label.form.check_all'),"$$('div#receive_list input[type=checkbox]').each(function(e){e.checked = true});"  -%>
+&nbsp;|&nbsp;
+<%= link_to_function t('label.form.uncheck_all'),"$$('div#receive_list input[type=checkbox]').each(function(e){e.checked = false});" -%>
+&nbsp;|&nbsp;
+<%= link_to_remote t('label.form.set_all'),:url => {:action => 'set_all_qty'} -%>
+&nbsp;|&nbsp;
+</h3>
+<!-- %= will_paginate @receives, :renderer => 'RemoteLinkRenderer', :params => {:action => 'search'} % -->
 <div class="list">
 <table width="100%">
 	<thead>
@@ -12,3 +25,4 @@
 	</tbody>
 </table>
 </div>
+<% end %>

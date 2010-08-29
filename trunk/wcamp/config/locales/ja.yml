@@ -196,6 +196,12 @@ ja:
         edi_at: "実行時刻"
 
   label: 
+      form:
+        confirm: "確定"
+        check_all: "全て選択"
+        uncheck_all: "全て外す"
+        set_all: "指示と同数をセット"
+
       ship_order: 
         work_no: "出荷管理番号"
         work_line_no: "行#"
@@ -216,6 +222,7 @@ ja:
 
       receive: 
         work_no: "管理番号"
+        supplier: "納入業者"
         waacs_code: "WAACSコード"  
         goods_code: "商品コード"
         location: "ロケーション"

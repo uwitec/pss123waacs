@@ -6,7 +6,7 @@ class EdiFile < ActiveRecord::Base
 		%w(入荷実績 received),
 		%w(棚卸計画 stock_keeping),
 		%w(在庫一覧 inventries)
-	]
+	].freeze
 
 	def self.status tag
 		'Unknown'
@@ -18,5 +18,21 @@ class EdiFile < ActiveRecord::Base
 
 	def self.last_edi_at tag
 		'anytime'
+	end
+
+	def self.shipping
+		import_file = $IMPORT_DIR + '/' + 'ship_orders.csv'
+		if RAILS_ENV == 'development'
+			FileUtils.cp RAILS_ROOT + '/test/fixtures/' + 'ship_orders.csv', import_file
+		end
+		ShipOrder.new.import_file(import_file)	
+	end
+
+	def self.receiving
+		import_file = $IMPORT_DIR + '/' + 'receives.csv'
+		if RAILS_ENV == 'development'
+			FileUtils.cp RAILS_ROOT + '/test/fixtures/' + 'receives.csv', import_file
+		end
+		Receive.new.import_file(import_file)
 	end
 end
