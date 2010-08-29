@@ -4,6 +4,6 @@
 	<td><%= order.goods_code %></td>
 	<td><%= order.goods_name %></td>
 	<td class="num"><%= order.order_qty %></td>
-	<td class="num"><%= text_field :order, :result_qty, :size => 5 %></td>
-	<td><%= check_box_tag 'fixed' %></td>
+	<td class="num"><%= text_field_tag 'orders[][result_qty]', order.result_qty, :size => 5 %></td>
+	<td><%= check_box_tag 'orders[][id]', order.id %></td>
 </tr>

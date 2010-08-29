@@ -2,7 +2,10 @@
 <table width="100%">
 	<tr>
 		<td width="15%"><%= t 'label.ship_order.work_no' %></td>
-		<td><%= @orders.map{|w| w.work_no }.uniq.compact.join('/') %></td>
+		<td>
+			<%= @orders.map{|w| w.work_no }.uniq.compact.join('/') %>
+			<%= @orders.map{|w| w.show_status}.uniq.compact.join(',') %>
+		</td>
 	</tr>
 	<tr>
 		<td><%= t('label.ship_order.user_code') %></td>
@@ -14,6 +17,18 @@
 	</tr>
 </table>
 </div>
+<% form_remote_tag :url => {:action => 'confirm'} do %> 
+<h3>
+<%= submit_tag t('label.form.confirm') %>
+&nbsp;&nbsp;
+&nbsp;|&nbsp;
+<%= link_to_function t('label.form.check_all'),"$$('div#order_list input[type=checkbox]').each(function(e){e.checked = true});"  -%>
+&nbsp;|&nbsp;
+<%= link_to_function t('label.form.uncheck_all'),"$$('div#order_list input[type=checkbox]').each(function(e){e.checked = false});" -%>
+&nbsp;|&nbsp;
+<%= link_to_remote t('label.form.set_all'),:url => {:action => 'set_all_qty'} -%>
+&nbsp;|&nbsp;
+</h3>
 <div class="list">
 <table width="100%">
 	<thead>
@@ -26,3 +41,4 @@
 	</tbody>
 </table>
 </div>
+<% end %>

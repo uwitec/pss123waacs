@@ -1,4 +1,7 @@
 <% form_remote_tag :url => "/ship/search/" do %>	
-<%= t 'label.ship_order.work_no' %><%= text_field_tag :search, @work_no, :size => 10 %>
+<%= t 'label.ship_order.work_no' %>
+<%= text_field :keyword, :work_no, :size => 10 %>
+<%= t 'label.form.show_fixed' %>
+<%= check_box :keyword, :show_fixed, :value => '1' %>
 <%= submit_tag "検索" %>
 <% end %>

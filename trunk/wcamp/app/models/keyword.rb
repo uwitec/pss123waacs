@@ -1,6 +1,6 @@
 class Keyword
 	KEYS = (
-		%w(search show_fixed)
+		%w(search show_fixed work_no)
 	).freeze
 	
 	KEYS.each{|key| eval("attr_accessor :#{key}")}
@@ -29,4 +29,11 @@ class Keyword
 		conditions.push("status not in('50','90')") if [nil,'',0,'0'].include?(self.show_fixed)
 		conditions.join(" and ")
 	end	
+
+	def search_shipping_conditions
+		conditions = []
+		conditions.push("work_no = '#{self.work_no}'") unless [nil,''].include?(self.work_no)
+		conditions.push("status not in('50','90')") if [nil,'',0,'0'].include?(self.show_fixed)
+		conditions.join(" and ")
+	end
 end
