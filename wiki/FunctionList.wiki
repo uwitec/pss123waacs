@@ -1,7 +1,7 @@
 #summary 主要機能一覧
 #labels Phase-Design
 
-== cloud center ==
+== cloud center (Bird Firm) ==
  * 在庫問い合わせ、在庫一覧(PDF)
  * 在庫調整
  * 営業引当(在庫確保)
@@ -30,7 +30,7 @@
    * 出荷作業
    * 補充発注(発注点計算)
 
-== smart edi server ==
+== hub server (waacs-camp) ==
  * EDI
    * 注文 受信
    * 注文 転送(to PSS-CC)
