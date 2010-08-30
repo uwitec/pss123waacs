@@ -1,3 +1,4 @@
+#summary 作業スタータスの種類と遷移、管理方法
 #labels Phase-Design
 = 作業ステータス管理 = 
 == ステータス ==
