@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-2010-08-31 07:56:52.575 GMT:
- Booting Derby version The Apache Software Foundation - Apache Derby - 10.4.2.0 - (689064): instance a816c00e-012a-c726-0483-00000029dba0
+2010-08-31 08:31:22.653 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.4.2.0 - (689064): instance a816c00e-012a-c745-9b9c-000000aa0d78
 on database directory C:\mybox\svn_projects\birdfarm\lift_example  
 
 Database Class Loader started - derby.database.classpath=''
