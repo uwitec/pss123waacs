@@ -8,7 +8,10 @@ module ImportFile
 		RAILS_ROOT + "/config/import_file/" + self.class.to_s.underscore + ".yml"
 	end
 
-	def work_before_import
+	def work_before_import file = nil
+	end
+
+	def work_after_import
 	end
 
 	def import_file file
@@ -17,9 +20,11 @@ module ImportFile
 		backup_file_name = $BACKUP_DIR + '/' + File.basename(file) + '.bak'
 		
 		FileUtils.mv(file,import_file_name)
-		work_before_import
-		if load_file(import_file_name)
+		work_before_import(file)
+		count = 0
+		if count = load_file(import_file_name)
 			FileUtils.mv(import_file_name, backup_file_name)
+			work_after_import
 		end
 	end
 

@@ -4,7 +4,6 @@
 		<tr>
 			<th><%= t('label.edi_file.class_name') %></th>
 			<th><%= t('label.edi_file.edi_code') %></th>
-			<th><%= t('label.edi_file.file_path') %></th>
 			<th><%= t('label.edi_file.edi_at') %></th>
 			<th><%= t('label.edi_file.device') %></th>
 			<th><%= t('label.edi_file.show_status') %></th>
@@ -15,10 +14,11 @@
 		<% for edi_file in @edi_files %>
 			<tr>
 				<td><%= edi_file.show_class_name %></td>
-				<td><%= edi_file.edi_code %></td>
-				<td><%= link_to 'Download', :url => {:action => 'download', :file => edi_file.file_path } %></td>
-				<td><%= edi_file.edi_at.to_s %></td>
-				<td><%= edi_file.show_status %></td>
+				<td><%= link_to edi_file.edi_code, {:action => 'download', :file => edi_file.file_path} %></td>
+				<td><%= show_time edi_file.edi_at %></td>
+				<td><%= edi_file.device_name %></td>
+				<td><%= edi_file.status %></td>
+				<td>&nbsp;</td>
 			</tr>
 		<% end %>
 	</tbody>
