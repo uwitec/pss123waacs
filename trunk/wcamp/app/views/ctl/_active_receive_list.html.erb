@@ -1,0 +1,18 @@
+<div class="list">
+<div><%= t('label.models.receive') %></div>
+<table width="100%">
+	<thead>
+		<tr>
+			<th><%= t 'label.receive.work_no' %></th>
+			<th><%= t 'label.receive.status' %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for work_receive in @active_receives %>
+			<tr>
+				<td><%= link_to_remote work_receive.work_no, :url => {:action => 'search', :search => work_receive.work_no} %></td>
+				<td><%= work_receive.status %></td>
+		<% end %>
+	</tbody>
+</table>
+</div>

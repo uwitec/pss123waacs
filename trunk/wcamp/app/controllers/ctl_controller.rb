@@ -10,7 +10,8 @@ class CtlController < CaseinController #ApplicationController
   end
 
 	def list
-		@active_orders = WorkOrder.active
+		@active_orders = WorkOrder.find(:all, :order => 'max_status')
+		@active_receives = WorkReceive.find(:all, :order => 'max_status')
 	end
 
 	def search
@@ -40,8 +41,11 @@ class CtlController < CaseinController #ApplicationController
 	def render_page
 		list
 		render :update do |page|
-			page.visual_effect :highlight, 'order_list', :duration => 2
 			page.replace_html 'work_order_list', render(:partial => 'work_order_list')
+			page.visual_effect :highlight, 'active_order_list', :duration => 2
+			page.visual_effect :highlight, 'active_receive_list', :duration => 2
+			page.replace_html 'active_order_list', render(:partial => 'active_order_list')
+			page.replace_html 'active_receive_list', render(:partial => 'active_receive_list')
 		end
 	end
 end

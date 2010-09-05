@@ -21,11 +21,16 @@ class EdiController < CaseinController #ApplicationController
 		send_file params[:file]
 	end
 
+	def refresh
+		render_page
+	end
+
 	def render_page
 		list
 		render :update do |page|
 			page.visual_effect :highlight, 'edi_class_list', :duration => 2
 			page.replace_html 'edi_class_list', render(:partial => 'edi_class_list')	
+			page.visual_effect :highlight, 'edi_file_list', :duration => 2
 			page.replace_html 'edi_file_list', render(:partial => 'edi_file_list')	
 		end	
 	end

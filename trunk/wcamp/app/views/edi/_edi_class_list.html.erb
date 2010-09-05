@@ -1,10 +1,13 @@
 <div class="list">
+<div>
+	<%= link_to_remote t('label.form.refresh'), :url => {:action => 'refresh'} %>
+</div>
 <table width="100%">
 <thead>
 	<tr>
 		<th><%= t('label.edi.class_name') %></th>
+		<th><%= t('label.edi.lines') %></th>
 		<th><%= t('label.edi.status') %></th>
-		<th><%= t('label.edi.last_edi_status') %></th>
 		<th><%= t('label.edi.last_edi_at') %></th>
 		<th><%= t('label.edi.rake_name') %></th>
 	</tr>
@@ -13,9 +16,9 @@
 	<% EdiFile::EDI_TYPE.each do |name, tag| %>
 		<tr>
 			<td><%= name %></td>
-			<td><%= EdiFile.status(tag) %></td>
-			<td><%= EdiFile.last_edi_status(tag) %></td>
-			<td><%= EdiFile.last_edi_at(tag) %></td>
+			<td class="num"><%= EdiFile.lines(tag).size %></td>
+			<td><%= EdiFile.show_status(tag) %></td>
+			<td><%= show_time EdiFile.last_edi_at(tag) %></td>
 			<td><%= button_to_remote '手動実行', :url => {:action => 'edi_start', :tag => tag} %></td>
 		</tr>
 	<% end %>
