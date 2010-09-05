@@ -196,6 +196,12 @@ ja:
         edi_at: "実行時刻"
 
   label: 
+      models: 
+        inventory: "在庫" 
+        receive: "入荷" 
+        ship_order: "出荷指示"
+        edi_file: "電子データ交換"
+
       form:
         confirm: "確定"
         check_all: "全て選択"
@@ -203,6 +209,7 @@ ja:
         set_all: "指示と同数をセット"
         show_fixed: "検品済も表示"
         new_line: "新規登録"
+        refresh: "最新を表示"
 
       ship_order: 
         work_no: "出荷管理番号"
@@ -239,6 +246,7 @@ ja:
       edi:
         class_name: "種別"
         status: "ステータス"
+        lines: "行"
         last_edi_status: "最新ステータス"
         last_edi_at: "最新実行時刻"
         rake_name: "手動実施"

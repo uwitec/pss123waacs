@@ -5,19 +5,49 @@ class EdiFile < ActiveRecord::Base
 		%w(入荷予定 receiving),
 		%w(入荷実績 received),
 		%w(棚卸計画 stock_keeping),
-		%w(在庫一覧 inventries)
+		%w(在庫一覧 inventories)
 	].freeze
-
-	def self.status tag
-		'Unknown'
+	
+	# class_name => [class status ... ]
+	TAG_CLASS = {
+		"shipping" => %w(ShipOrder),
+		"shipped" => %w(ShipOrder 90),
+		"receiving" => %w(Receive),
+		"received" => %w(Receive 90),
+		"stock_keeping" => %w(StockKeeping),
+		"inventories" => %w(Inventory)
+	}.freeze
+	
+	def self.lines tag
+		tags = TAG_CLASS[tag]
+		class_name = tags[0]	
+		begin
+			if tags[1,tags.size].size > 0
+				eval("#{class_name}.find(:all, :conditions => {:status => tags})")
+			else
+				eval("#{class_name}.find(:all)")
+			end
+		rescue
+			[]
+		end
 	end
 
-	def self.last_edi_status tag
-		'Unknown last'
+	def self.show_status tag
+		e = EdiFile.lines(tag).map{|r| r.show_status}
+		statuses = e.uniq.map{|x| [x, e.map{|y| y if y == x}.compact.size]}
+		statuses.map{|s| s[0] + '(' + s[1].to_s + ')'}.join(" ")	
 	end
 
 	def self.last_edi_at tag
-		'anytime'
+		EdiFile.maximum("edi_at", :conditions => {:class_name => tag})
+	end
+	
+	def show_class_name
+		(r = EDI_TYPE.rassoc(self.class_name)) ? r[0] : '不明'
+	end
+
+	def status
+		'-'
 	end
 
 	def self.shipping
@@ -36,11 +66,16 @@ class EdiFile < ActiveRecord::Base
 		Receive.new.import_file(import_file)
 	end
 
-	def show_class_name
-		(r = EDI_TYPE.rassoc(self.class_name)) ? r[0] : '不明'
+	def self.shipped
 	end
 
-	def status
-		'-'
+	def self.received
 	end
+
+	def self.stock_keeping
+	end
+
+	def self.inventries
+	end
+	
 end

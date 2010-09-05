@@ -15,8 +15,26 @@ class ShipOrder < ActiveRecord::Base
 		%w(完了   90)
 	].freeze
 	
+	def mysort_lines lines
+		work_nos = []
+		lines.each do |line|
+			work_nos.push line.split(',')[0]
+		end
+		ShipOrder.find(:all, :conditions => {:work_no => work_nos.uniq.compact}).each{|r| r.destroy}
+		lines.map{|line| line unless [nil,'','work_no'].include?(line.split(',')[0])}.compact
+	end
+	
 	def work_before_import file
 		@file = file
+	end
+	
+	def import_line column_and_value
+		target = self.class.new
+		column_and_value.each{ |col,value| target[col.to_sym] = value }
+		target.edi_code = File.basename(@file,'.*')
+		unless target.save
+			$stderr.print(target.errors.full_messages.join("\n") + "\n")
+		end
 	end
 
 	def work_after_import
@@ -28,16 +46,8 @@ class ShipOrder < ActiveRecord::Base
 			:file_path => backup_file_name,
 			:edi_at => DateTime.now
 		)	
+		edi_file.save
 	end 
-	
-	def import_line column_and_value
-		target = self.class.new
-		column_and_value.each{ |col,value| target[col.to_sym] = value }
-		target.edi_code = File.basename(@file,'.*')
-		unless target.save
-			$stderr.print(target.errors.full_messages.join("\n") + "\n")
-		end
-	end
 
 	def device
 		'-'
