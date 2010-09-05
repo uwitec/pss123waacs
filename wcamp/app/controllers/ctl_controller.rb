@@ -2,6 +2,9 @@ class CtlController < CaseinController #ApplicationController
 	layout "wcamp"
 	
   def index
+		unless @session_user.is_admin?
+			redirect_to :controller => 'ship'
+		end
 		@work_orders = WorkOrder.find(:all)
 		list		
   end
