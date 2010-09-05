@@ -1,6 +1,10 @@
 class EdiController < CaseinController #ApplicationController
 	layout 'wcamp'
+	
   def index
+		unless @session_user.is_admin?
+			redirect_to :controller => 'ship'
+		end
 		list
   end
 

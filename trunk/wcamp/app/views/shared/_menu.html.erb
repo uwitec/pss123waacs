@@ -1,6 +1,9 @@
 <%= link_menu_to "出荷検品", { :controller => "ship" } %>
 <%= link_menu_to "入荷確定", { :controller => "receive" } %>
+<% if @session_user.is_admin? %>
 <%= link_menu_to "作業監視", { :controller => "ctl" } %>
 <%= link_menu_to "EDI/物流機器" , { :controller => "edi" }  %>
+<% end %>
 <%= link_menu_to "システム管理" , { :controller => "casein" } %>
 <%= link_to 'Logout', :controller => :casein_auth, :action => :logout %>
+
