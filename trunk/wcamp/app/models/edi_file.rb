@@ -35,4 +35,12 @@ class EdiFile < ActiveRecord::Base
 		end
 		Receive.new.import_file(import_file)
 	end
+
+	def show_class_name
+		(r = EDI_TYPE.rassoc(self.class_name)) ? r[0] : '不明'
+	end
+
+	def status
+		'-'
+	end
 end

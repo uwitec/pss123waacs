@@ -140,3 +140,11 @@ body {
 	font-weight: bold;
 }
 
+#hello {
+	float: left;
+	margin: 0;
+	padding: 5px;
+	color: #486D94;
+	font-weight: bold;
+	
+}

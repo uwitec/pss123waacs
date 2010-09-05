@@ -9,7 +9,7 @@ class EdiController < CaseinController #ApplicationController
   end
 
 	def list
-		@edi_files = EdiFile.find(:all)		
+		@edi_files = EdiFile.find(:all)
 	end
 
 	def edi_start
@@ -17,10 +17,16 @@ class EdiController < CaseinController #ApplicationController
 		render_page
 	end
 
+	def download
+		send_file params[:file]
+	end
+
 	def render_page
+		list
 		render :update do |page|
 			page.visual_effect :highlight, 'edi_class_list', :duration => 2
 			page.replace_html 'edi_class_list', render(:partial => 'edi_class_list')	
+			page.replace_html 'edi_file_list', render(:partial => 'edi_file_list')	
 		end	
 	end
 end
