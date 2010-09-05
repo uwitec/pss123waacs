@@ -1,2 +1,2 @@
-class LogiDevice::LogiPrinter < ActiveRecord::Base
+class LogiDevice::LogiPrinter < LogiDevice
 end
