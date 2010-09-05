@@ -4,38 +4,123 @@ ja:
       inventory: "inventory"  #g
       receive: "受信"  #g
       ship_order: "ship_order"  #g
+      edi_file: "電子データ交換"  #g
+      waacs_code: "waacs_code"  #g
+      work_order: "work_order"  #g
+      work_receive: "work_receive"  #g
 
     attributes: 
       inventory: 
-        work_no: "work_no"  #g
-        location: "location"  #g
-        goods_code: "goods_code"  #g
-        goods_name: "goods_name"  #g
-        system_qty: "system_qty"  #g
-        result_qty: "result_qty"  #g
+        work_no: "ない機能"  #g
+        location: "場所"  #g
+        goods_code: "商品コード"  #g
+        goods_name: "商品名"  #g
+        system_qty: "システム個数"  #g
+        result_qty: "結果個数"  #g
 
       receive: 
-        work_no: "work_no"  #g
-        waacs_code: "waacs_code"  #g
-        goods_code: "goods_code"  #g
-        location: "location"  #g
+        work_no: "ない機能"  #g
+        waacs_code: "Waacsコード"  #g
+        goods_code: "商品コード"  #g
+        location: "ロケーション"  #g
         announced_qty: "発表個数"  #g
         result_qty: "結果個数"  #g
         user_code: "ユーザコード"  #g
         goods_name: "商品名"  #g
         comment: "コメント"  #g
+        edi_code: "edi_code"  #g
+        quality_status: "quality_status"  #g
+        status: "ステータス"  #g
+        supplier: "サプライヤー"  #g
 
       ship_order: 
-        work_no: "work_no"  #g
-        work_line_no: "work_line_no"  #g
-        location: "location"  #g
-        goods_code: "goods_code"  #g
-        waacs_code: "waacs_code"  #g
+        work_no: "ない機能"  #g
+        work_line_no: "作業ラインは"  #g
+        location: "場所"  #g
+        goods_code: "商品コード"  #g
+        waacs_code: "Waacsコード"  #g
         order_qty: "注文数量"  #g
-        result_qty: "result_qty"  #g
-        user_code: "user_code"  #g
-        start_at: "start_at"  #g
-        end_at: "end_at"  #g
-        goods_name: "goods_name"  #g
+        result_qty: "結果個数"  #g
+        user_code: "ユーザコード"  #g
+        start_at: "でスタート"  #g
+        end_at: "最後に"  #g
+        goods_name: "商品名"  #g
         delivery_name: "配信名"  #g
         comment: "コメント"  #g
+        status: "ステータス"  #g
+        edi_code: "エディコード"  #g
+        quality_status: "品質状態"  #g
+
+      edi_file: 
+        class_name: "種別"  #g
+        edi_code: "ファイルID"  #g
+        file_path: "EDIファイル"  #g
+        edi_at: "実行時刻"  #g
+        device_name: "装置名"  #g
+
+      waacs_code: 
+        code: "コード"  #g
+        name: "名"  #g
+        device: "デバイス"  #g
+        device_code: "デバイスコード"  #g
+        logic: "ロジック"  #g
+
+      work_order: 
+        work_no: "ない機能"  #g
+        start_at: "でスタート"  #g
+        end_at: "最後に"  #g
+        max_status: "最大ステータス"  #g
+        sum: "合計"  #g
+
+      work_receive: 
+        work_no: "ない機能"  #g
+        max_status: "最大ステータス"  #g
+        sum: "合計"  #g
+
+  label: 
+    models: 
+      ship_order: "出荷指示"  #g
+      receive: "入荷"  #g
+
+    ship_order: 
+      work_no: "出荷管理番号"  #g
+      status: "状態"  #g
+      work_line_no: "行#"  #g
+      location: "ロケーション"  #g
+      goods_code: "商品コード"  #g
+      goods_name: "商品"  #g
+      order_qty: "注文数量"  #g
+      result_qty: "出荷数量"  #g
+      delivery_name: "配送先"  #g
+      start_at: "開始時間"  #g
+      end_at: "終了時間"  #g
+      device: "物流機器"  #g
+      user_code: "作業者ID"  #g
+
+    receive: 
+      work_no: "管理番号"  #g
+      status: "状態"  #g
+      supplier: "納入業者"  #g
+      goods_code: "商品コード"  #g
+      goods_name: "商品名"  #g
+      location: "ロケーション"  #g
+      announced_qty: "予定数"  #g
+      result_qty: "結果数"  #g
+
+    form: 
+      refresh: "最新を表示"  #g
+
+    edi: 
+      class_name: "種別"  #g
+      lines: "行"  #g
+      status: "ステータス"  #g
+      last_edi_at: "最新実行時刻"  #g
+      rake_name: "手動実施"  #g
+
+    edi_file: 
+      class_name: "種別"  #g
+      edi_code: "ファイルID"  #g
+      edi_at: "実行時刻"  #g
+      device: "物流機器"  #g
+      show_status: "ステータス"  #g
+
