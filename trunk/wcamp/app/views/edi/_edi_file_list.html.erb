@@ -14,7 +14,13 @@
 		<% for edi_file in @edi_files %>
 			<tr>
 				<td><%= edi_file.show_class_name %></td>
-				<td><%= link_to edi_file.edi_code, {:action => 'download', :file => edi_file.file_path} %></td>
+				<td>
+					<% if File.exist?(edi_file.file_path) %>
+						<%= link_to edi_file.edi_code, {:action => 'download', :file => edi_file.file_path} %>
+					<% else %>
+						<%= edi_file.edi_code %>
+					<% end %>
+				</td>
 				<td><%= show_time edi_file.edi_at %></td>
 				<td><%= edi_file.device_name %></td>
 				<td><%= edi_file.status %></td>
