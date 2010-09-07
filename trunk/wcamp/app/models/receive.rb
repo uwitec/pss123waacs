@@ -1,6 +1,9 @@
 class Receive < ActiveRecord::Base
 	require "import_file"
 	include ImportFile
+	require "export_file"
+	include ExportFile
+	
 	attr_accessor :file
 
 	def mysort_lines lines

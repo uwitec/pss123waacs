@@ -1,6 +1,9 @@
 class ShipOrder < ActiveRecord::Base
 	require 'import_file'
 	include ImportFile
+	require 'export_file'
+	include ExportFile
+	
 	attr_accessor :file
 
 	validates_uniqueness_of :work_line_no, :scope => [:work_no]	

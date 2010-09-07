@@ -67,6 +67,10 @@ class EdiFile < ActiveRecord::Base
 	end
 
 	def self.shipped
+		export_file = $EXPORT_DIR + '/' + 'ship.dat'
+		ships = ShipOrder.find(:all, 
+			:conditions => {:status => '50'}, :order => 'work_no, work_line_no')
+		ShipOrder.new.export_file export_file, ships, 'ship_order.yml'	
 	end
 
 	def self.received
