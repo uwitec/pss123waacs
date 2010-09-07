@@ -107,7 +107,7 @@ module ExportFile
 
 	# helper
 	def make_export_template filename = nil
-		escape = %w(created_at updated_at created_on updated_on)
+		escape = %w(created_at updated_at created_on updated_on id)
 		unless filename
 			filename = self.class.to_s.underscore
 		end
@@ -121,14 +121,14 @@ common :
   file_type : csv
 format :
 _END1
-			columns = self.attributes.map{|a| a[0] unless escape.include?(a[0])}.uniq.compact.sort
-			columns.each do 
+			columns = self.class.columns.map{|a| a.name unless escape.include?(a.name)}.uniq.compact
+			columns.each do |col|
 				f.write <<_END2
-#{a} :
-  start  :
-  size   :
-  view   :
-  action :
+  #{col} :
+    start  :
+    size   :
+    view   :
+    action :
 _END2
 			end
 		end

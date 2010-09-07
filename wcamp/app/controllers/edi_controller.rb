@@ -9,7 +9,7 @@ class EdiController < CaseinController #ApplicationController
   end
 
 	def list
-		@edi_files = EdiFile.find(:all)
+		@edi_files = EdiFile.find(:all, :order => 'edi_at desc', :limit => 20)
 	end
 
 	def edi_start
