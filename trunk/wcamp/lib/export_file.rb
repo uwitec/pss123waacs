@@ -10,6 +10,12 @@ module ExportFile
 	def exchange_config_file_name
 		RAILS_ROOT + "/config/export_file/" + self.class.to_s.underscore + ".yml"
 	end
+	
+	def work_before_exoprt file = nil
+	end
+
+	def work_after_export
+	end
 
 	def export_mysort_lines lines = []
 		lines
