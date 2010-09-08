@@ -10,7 +10,7 @@
 	<tbody>
 		<% for work_order in @active_orders %>
 			<tr>
-				<td><%= link_to_remote work_order.work_no, :url => {:action => 'search', :work_no => work_order.work_no} %></td>
+				<td><%= work_order.work_no %></td>
 				<td><%= work_order.status %></td>
 		<% end %>
 	</tbody>

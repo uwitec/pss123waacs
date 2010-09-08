@@ -10,7 +10,7 @@
 	<tbody>
 		<% for work_receive in @active_receives %>
 			<tr>
-				<td><%= link_to_remote work_receive.work_no, :url => {:action => 'search', :search => work_receive.work_no} %></td>
+				<td><%= work_receive.work_no %></td>
 				<td><%= work_receive.status %></td>
 		<% end %>
 	</tbody>
