@@ -10,10 +10,10 @@ class EdiFile < ActiveRecord::Base
 	
 	# class_name => [class status ... ]
 	TAG_CLASS = {
-		"shipping" => %w(ShipOrder),
-		"shipped" => %w(ShipOrder 90),
-		"receiving" => %w(Receive),
-		"received" => %w(Receive 90),
+		"shipping" => ['ShipOrder','','10','20','30','40','50','',nil],
+		"shipped" => %w(ShipOrder 50 90),
+		"receiving" => ['Receive','','10','20','30','40','50','',nil],
+		"received" => %w(Receive 50 90),
 		"stock_keeping" => %w(StockKeeping),
 		"inventories" => %w(Inventory)
 	}.freeze
@@ -70,10 +70,18 @@ class EdiFile < ActiveRecord::Base
 		export_file = $EXPORT_DIR + '/' + 'ship.dat'
 		ships = ShipOrder.find(:all, 
 			:conditions => {:status => '50'}, :order => 'work_no, work_line_no')
-		ShipOrder.new.export_file export_file, ships, 'ship_order.yml'	
+		if ShipOrder.new.export_file export_file, ships, 'ship_order.yml'	
+			ships.each{|s| s.status = '90'; s.save}
+		end
 	end
 
 	def self.received
+		export_file = $EXPORT_DIR + '/' + 'receive.dat'
+		receives = Receive.find(:all, 
+			:conditions => {:status => '50'}, :order => 'work_no,goods_code')
+		if Receive.new.export_file export_file, receives, 'receive.yml'	
+			receives.each{|s| s.status = '90'; s.save}
+		end
 	end
 
 	def self.stock_keeping

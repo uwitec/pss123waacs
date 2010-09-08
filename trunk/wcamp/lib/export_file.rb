@@ -22,6 +22,7 @@ module ExportFile
 	end
 
 	def export_file file , records, config_file = nil
+		work_before_export file
 		export_file_name = file
 		config_file_name = export_config_file_name
 		if config_file
@@ -80,6 +81,7 @@ module ExportFile
 				end
 			}		
 		end
+		work_after_export
 	end
 
 	def exchange_fix_to_csv  fix_file, csv_file
