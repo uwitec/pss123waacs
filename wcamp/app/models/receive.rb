@@ -6,6 +6,20 @@ class Receive < ActiveRecord::Base
 	
 	attr_accessor :file
 
+	def work_before_export file
+		@file = file
+	end
+	
+	def work_after_export
+		edi_file = EdiFile.new(
+			:class_name => 'received',
+			:edi_code => 	File.basename(@file,'.*'), 
+			:file_path => @file,
+			:edi_at => DateTime.now
+		)	
+		edi_file.save
+	end 
+	
 	def mysort_lines lines
 		work_nos = []
 		lines.each do |line|
