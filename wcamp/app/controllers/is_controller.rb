@@ -6,11 +6,19 @@ class IsController < ApplicationController
   end
 
 	def list
-		@work_orders = WorkOrder.find(:all, :conditions => "max_status in(10,20,30) or max_status is null")
+		@work_orders = WorkOrder.find(:all, :conditions => "max_status in(10,20,30) or max_status is null or max_status = ''")
 	end
 
 	def show_today
 		list
+		render :update do |page|
+			page.replace_html 'work', ''
+			page.replace_html 'work_order_list', render(:partial => 'work_order_list')
+		end
+	end
+
+	def show_balance
+		@work_orders = WorkOrder.find(:all, :conditions => "max_status in(10) or max_status is null or max_status = ''")
 		render :update do |page|
 			page.replace_html 'work', ''
 			page.replace_html 'work_order_list', render(:partial => 'work_order_list')
@@ -23,6 +31,7 @@ class IsController < ApplicationController
 
 	def picking
 		orders = WorkOrder.find(params[:id].to_i).ship_orders
+		orders.each{|order| order.start_at = DateTime.now; order.save}
 		render :update do |page|
 			page.replace_html 'work', 
 				render(:partial => 'order_list', :locals => {:orders => orders})
