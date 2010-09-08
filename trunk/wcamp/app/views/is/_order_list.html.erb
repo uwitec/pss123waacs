@@ -1,10 +1,13 @@
 <ul>
 	<% for order in orders %>
+		<% if order.status == '30' %>
+		<% str = [order.work_line_no, order.show_status, order.location.strip].join(' ') %>
+		<li>
+			<%= str %>
+		<% else %>
 		<li class="arrow">
-			<%= link_to_remote order.work_line_no, :url => {:action => 'picked', :id => order.id} %>
-			<%= order.status.to_s %>
-			<%= order.goods_code %>
-			<%= order.location %>
+			<%= link_to_remote str, :url => {:action => 'picked', :id => order.id} %>
+		<% end %>
 			<small class="counter"><%= order.order_qty %></small>
 		</li>
 	<% end %>
