@@ -1,0 +1,6 @@
+	<% for order in @work_orders %>
+		<li class="arrow">
+			<%= link_to_remote '#' + order.work_no + ' ' + order.status, :url => {:action => 'picking', :id => order.id} %>
+			<small class="counter"><%= order.order_lines %></small>
+		</li>
+	<% end %>

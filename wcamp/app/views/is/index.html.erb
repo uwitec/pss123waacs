@@ -15,19 +15,13 @@
 	<div id="jqt">
 		<div id="home">
 			<ul class="individual">
-				<li><a>本日分</a></li>
+				<li><%= link_to_remote "本日分", :url => {:action => 'show_today'} %></a></li>
 				<li><a>出荷残</a></li>
 			</ul>
 			<div id="work">
 			</div>
-			<ul>
-				<% for order in @work_orders %>
-				<li class="arrow">
-					<%= link_to_remote order.work_no, :url => {:action => 'picking', :id => order.id} %>
-					<%= order.status %>
-					<small class="counter"><%= order.order_lines %></small>
-				</li>
-				<% end %>
+			<ul id="work_order_list">
+				<%= render :partial => 'work_order_list' %>
 			</ul>
 		</div>
 	</div>
