@@ -1,6 +1,6 @@
 common :
   name : receive
-  total_size : 71
+  total_size : 90
   check_integer_position :
   file_type : fix
 format :
@@ -29,3 +29,13 @@ format :
     size   : 20
     view   :
     action :
+  lot_no :
+    start  : 71
+    size   : 10
+    view   :
+    action :
+  expire_on :
+    start  : 81
+    size   : 10
+    view   :
+    action : date_to_s

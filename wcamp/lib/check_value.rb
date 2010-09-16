@@ -72,4 +72,12 @@ module CheckValue
 			false
 		end
 	end		
+
+	def date_to_s date
+		begin
+			date.strftime('%Y%m%d')
+		rescue
+			''
+		end	
+	end
 end

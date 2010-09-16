@@ -30,12 +30,17 @@ class ReceiveController < CaseinController # ApplicationController
 
 	def confirm
 		params[:receives].each do |r|
+			logger.debug r[:expire_on]
 			next if [nil,''].include?(r[:id])
 			receive = Receive.find(r[:id].to_i)
 			receive.location = r[:location]
+			receive.lot_no = r[:lot_no]
+			receive.expire_on = r[:expire_on]
 			receive.result_qty = r[:result_qty].to_i
 			receive.status = '50'
-			receive.save
+			unless receive.save
+				logger.debug receive.errors.full_message
+			end
 		end
 		list
 		render_page

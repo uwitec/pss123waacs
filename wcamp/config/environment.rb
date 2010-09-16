@@ -53,3 +53,5 @@ ActionMailer::Base.smtp_settings = {
 }
 
 I18n.default_locale = "ja"
+
+CalendarDateSelect.format = :american
