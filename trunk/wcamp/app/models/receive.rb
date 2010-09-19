@@ -5,6 +5,7 @@ class Receive < ActiveRecord::Base
 	include ExportFile
 	
 	attr_accessor :file
+	validates_presence_of :goods_code
 
 	def work_before_export file
 		@file = file
