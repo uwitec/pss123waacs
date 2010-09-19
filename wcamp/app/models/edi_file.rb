@@ -80,7 +80,21 @@ class EdiFile < ActiveRecord::Base
 		receives = Receive.find(:all, 
 			:conditions => {:status => '50'}, :order => 'work_no,goods_code')
 		if Receive.new.export_file export_file, receives, 'receive.yml'	
-			receives.each{|s| s.status = '90'; s.save}
+			receives.each do |r|
+				r.status = '90'
+				r.save
+				if r.announced_qty > r.result_qty
+					receive = Receive.new(r.attributes)
+					receive.announced_qty = r.announced_qty - r.result_qty
+					receive.status = '10'
+					receive.result_qty = 0	
+					receive.user_code = ''
+					receive.quality_status = ''
+					receive.lot_no = ''
+					receive.expire_on = ''
+					receive.save
+				end
+			end
 		end
 	end
 

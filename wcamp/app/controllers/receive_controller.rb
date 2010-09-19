@@ -57,7 +57,7 @@ class ReceiveController < CaseinController # ApplicationController
 		@receive = Receive.new(params[:receive])
 		@receive.work_no = Date.today.strftime('%Y%m%d') + '999'
 		@receive.status = '50'
-		logger.debug @receive.error.full_messages unless @receive.save
+		logger.debug @receive.errors.full_messages unless @receive.save
 		list
 		render_page
 	end

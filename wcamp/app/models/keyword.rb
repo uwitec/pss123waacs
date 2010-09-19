@@ -26,14 +26,22 @@ class Keyword
 				conditions.push(joined_col_name + " like '%#{search}%'")
 			end
 		end
-		conditions.push("status not in('50','90')") if [nil,'',0,'0'].include?(self.show_fixed)
+		if [nil,'',0,'0'].include?(self.show_fixed)
+			conditions.push("status not in('50','90')") 
+		else
+			conditions.push("status not in('90')") 
+		end
 		conditions.join(" and ")
 	end	
 
 	def search_shipping_conditions
 		conditions = []
 		conditions.push("work_no = '#{self.work_no}'") unless [nil,''].include?(self.work_no)
-		conditions.push("status not in('50','90')") if [nil,'',0,'0'].include?(self.show_fixed)
+		if [nil,'',0,'0'].include?(self.show_fixed)
+			conditions.push("status not in('50','90')") 
+		else
+			conditions.push("status not in('90')") 
+		end
 		conditions.join(" and ")
 	end
 end

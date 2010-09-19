@@ -1,8 +1,41 @@
-	<td colspan="2"><%= text_field :receive, :supplier, :size => 20 %></td>
-	<td><%= text_field :receive, :goods_code, :size => 20 %><br/>
-	<%= text_field :receive, :goods_name, :size => 20 %></td>
-	<td><%= text_field :receive, :location, :size => 10 %></td>
-	<td colspan="2" class="num"><%= text_field :receive, :result_qty, :size => 5 %></td>
+<table width="100%">
+<thead>
+	<tr>
+	<th><%= t 'label.receive.supplier' %></th>	
+	<th>
+		<%= t 'label.receive.goods_code' %><br/>	
+		<%= t 'label.receive.goods_name' %>
+	</th>	
+	<th>
+		<%= t 'label.receive.location' %><br/>
+		<%= t 'label.receive.lot_no' %>
+	</th>	
+	<th>
+		<%= t 'label.receive.expire_on' %>
+	</th>	
+	<th class="num"><%= t 'label.receive.result_qty' %></th>	
+	<th><%= t 'label.receive.status' %></th>	
+	<th>&nbsp;</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+	<td>
+		<%= text_field :receive, :supplier, :size => 20 %>
+	</td>
+	<td>
+		<%= text_field :receive, :goods_code, :size => 20 %><br/>
+		<%= text_field :receive, :goods_name, :size => 20 %>
+	</td>
+	<td>
+		<%= text_field :receive, :location, :size => 10 %><br/>
+		<%= text_field :receive, :lot_no, :size => 10 %>
+	</td>
+	<td><%= calendar_date_select :receives, :expire_on, :time => false,:popup => :force, :size => 10 %></td>
+	<td class="num"><%= text_field :receive, :result_qty, :size => 5 %></td>
 	<td><%= link_to_remote '新規', :url => {:action => 'create'}, 
 						:with => "Form.serialize('new_receive')" %></td>
 	<td>&nbsp;</td>
+	</tr>
+</tbody>
+</table>
