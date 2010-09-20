@@ -1,0 +1,41 @@
+common :
+  name : receive
+  total_size : 90
+  check_integer_position :
+  file_type : fix
+format :
+  work_no :
+    start  : 1
+    size   : 10
+    view   :
+    action :
+  goods_code :
+    start  : 11
+    size   : 20
+    view   :
+    action :
+  location :
+    start  : 31
+    size   : 10
+    view   :
+    action :
+  result_qty :
+    start  : 41
+    size   : 10
+    view   :
+    action :
+  supplier :
+    start  : 51
+    size   : 20
+    view   :
+    action :
+  lot_no :
+    start  : 71
+    size   : 10
+    view   :
+    action :
+  expire_on :
+    start  : 81
+    size   : 10
+    view   :
+    action : date_to_s

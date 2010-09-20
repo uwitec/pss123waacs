@@ -1,0 +1,46 @@
+common :
+  name : ship_order
+  total_size :
+  check_integer_position :
+  file_type : csv
+format :
+  work_no :
+    index  : 1
+    value  :
+    action :
+  work_line_no :
+    index  : 2
+    value  :
+    action :
+  location :
+    index  : 3
+    value  :
+    action :
+  goods_code :
+    index  : 4
+    value  :
+    action :
+  waacs_code :
+    index  : 5
+    value  :
+    action :
+  order_qty :
+    index  : 6
+    value  :
+    action :
+  goods_name :
+    index  : 7
+    value  :
+    action :
+  delivery_name :
+    index  : 8
+    value  :
+    action :
+  comment :
+    index  : 9
+    value  :
+    action :
+  status :
+    index  : 10
+    value  :
+    action :
