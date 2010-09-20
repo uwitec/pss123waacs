@@ -1,0 +1,9 @@
+<%= link_menu_to "在庫照会", { :controller => "inv" } %>
+<%= link_menu_to "注文登録", { :controller => "order" } %>
+<% if @session_user.is_admin? %>
+<%= link_menu_to "補充発注", { :controller => "sim" } %>
+<%= link_menu_to "EDI" , { :controller => "edi" }  %>
+<% end %>
+<%= link_menu_to "システム管理" , { :controller => "admin" } %>
+<%= link_to 'Logout', :controller => :casein_auth, :action => :logout %>
+

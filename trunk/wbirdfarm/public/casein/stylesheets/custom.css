@@ -1,0 +1,11 @@
+/* CASEIN CUSTOM    	  															*/
+/* Use this file for your project specific Casein CSS */
+body {
+	background: #CC3300;
+}
+#altNavigation li a {
+	background : #CC3300;
+}
+#altNavigation li a:hover {
+	background: #FF9999;
+}

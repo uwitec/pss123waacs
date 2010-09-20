@@ -1,0 +1,9 @@
+<h2><%= casein_config_website_name %>システム管理</h2>
+<%
+rss = InfoCatcher.get_rss("http://code.google.com/feeds/p/pss123waacs/updates/basic")
+for item in rss
+%>
+	<%= item.title %><br/>
+	<%= item.description %>
+	<hr>
+<% end %>

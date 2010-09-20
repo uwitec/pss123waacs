@@ -1,0 +1,35 @@
+#topnav {
+	float: right;
+	margin: 0;
+	padding: 0 0 0px 10px;
+	border-top: 1px solid #993300;
+	border-bottom: 1px solid #993300;
+	background: #CC3300;
+}
+
+#topnav ul, #topnav li{
+	margin: 0;
+	padding: 0;
+	display: inline;
+	list-style-type: none;
+}
+
+#topnav a:link, #topnav a:visited {
+	float: left;
+	line-height: 14px;
+	font-weight: bold;
+	margin: 0 10px 4px 10px;
+	text-decoration: none;
+	color: #EEEEEE;
+}
+
+#topnav a:link.active, #topnav a:visited.active, #topnav a:hover {
+	border-bottom: 4px solid #DBDB8F;
+	padding-bottom: 2px;
+	background: transparent;
+	color: #EEEEEE;
+}
+
+#topnav a:hover{
+	color: #000;
+}

@@ -1,0 +1,545 @@
+# Logfile created on Mon Sep 20 15:44:22 +0900 2010
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-09-20 15:54:50) [GET]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 98ms (View: 13, DB: 1) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing CaseinController#index (for 127.0.0.1 at 2010-09-20 15:54:58) [GET]
+
+ActionController::SessionRestoreError (Session contains objects whose class definition isn\'t available.
+Remember to require the classes for all objects kept in the session.
+(Original exception: #{const_error.message} [#{const_error.class}])
+):
+  app/controllers/application_controller.rb:14:in `find_keyword'
+
+Rendered rescues/_trace (102.5ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CaseinController#index (for 127.0.0.1 at 2010-09-20 15:55:54) [GET]
+
+ActionController::SessionRestoreError (Session contains objects whose class definition isn\'t available.
+Remember to require the classes for all objects kept in the session.
+(Original exception: #{const_error.message} [#{const_error.class}])
+):
+  app/controllers/application_controller.rb:14:in `find_keyword'
+
+Rendered rescues/_trace (38.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CaseinController#index (for 127.0.0.1 at 2010-09-20 15:57:39) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/admin/blank
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/admin/]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 15:57:40) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+
+ActionView::TemplateError (uninitialized constant ActionView::Base::CompiledTemplates::InfoCatcher) on line #3 of app/views/casein/blank.html.erb:
+1: <h2><%= casein_config_website_name %>システム管理</h2>
+2: <%
+3: rss = InfoCatcher.get_rss("http://code.google.com/feeds/p/pss123waacs/updates/basic")
+4: for item in rss
+5: %>
+6: 	<%= item.title %><br/>
+
+    app/views/casein/blank.html.erb:3
+
+Rendered rescues/_trace (40.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 15:58:03) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.5ms)
+Rendered casein_layouts/_right_navigation (0.9ms)
+Completed in 2936ms (View: 2925, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing CaseinAuthController#logout (for 127.0.0.1 at 2010-09-20 15:58:24) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/casein_auth/login
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/casein_auth/logout]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 15:58:24) [GET]
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 37ms (View: 33, DB: 0) | 200 OK [http://localhost/casein_auth/login]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 16:00:31) [GET]
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 92ms (View: 88, DB: 0) | 200 OK [http://localhost/casein_auth/login]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 16:03:00) [GET]
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 14ms (View: 11, DB: 0) | 200 OK [http://localhost/casein_auth/login]
+
+
+Processing CaseinAuthController#recover_password (for 127.0.0.1 at 2010-09-20 16:31:04) [POST]
+  Parameters: {"commit"=>"Reset", "authenticity_token"=>"p8EGHnduXs7jJLZ+Ynk1jFHRF+JygvVRQMJ7iNej4V4=", "recover_email"=>""}
+  [4;35;1mCaseinUser Load (0.4ms)[0m   [0mSELECT * FROM "casein_users" WHERE (email='') [0m
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 41ms (View: 6, DB: 0) | 200 OK [http://localhost/casein_auth/recover_password]
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CaseinCreateUsers (20100920064834)
+Migrating to CreateInventries (20100920071357)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "inventries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "warehouse_code" varchar(255), "waacs_code" varchar(255), "location" varchar(255), "goods_code" varchar(255), "goods_name" varchar(255), "qty" integer, "sim_qty" integer, "ordered_qty" integer, "lot_no" varchar(255), "expiry_on" date, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100920071357')[0m
+Migrating to CreateWareHouses (20100920072035)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "ware_houses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "warehouse_code" varchar(255), "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100920072035')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("casein_users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("inventries")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("ware_houses")[0m
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 16:35:40) [POST]
+  Parameters: {"commit"=>"Log in", "form_password"=>"password", "authenticity_token"=>"p8EGHnduXs7jJLZ+Ynk1jFHRF+JygvVRQMJ7iNej4V4=", "login"=>"admin"}
+  [4;36;1mCaseinUser Load (0.5ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE (login = 'admin') LIMIT 1[0m
+Redirected to http://localhost:4000/admin
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/casein_auth/login]
+
+
+Processing CaseinController#index (for 127.0.0.1 at 2010-09-20 16:35:40) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/admin/blank
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/admin]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 16:35:40) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.3ms)
+Completed in 4597ms (View: 4586, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-20 16:35:50) [GET]
+
+ActionController::RoutingError (No route matches "/ctl" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:36:09) [GET]
+Rendering inv/index
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:36:44) [GET]
+Rendering inv/index
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:41:04) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (25.5ms)
+Rendered shared/_message (1.0ms)
+Completed in 135ms (View: 124, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:43:59) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.7ms)
+Rendered shared/_message (0.1ms)
+Completed in 19ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:44:35) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.7ms)
+Rendered shared/_message (0.1ms)
+Completed in 19ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:45:28) [GET]
+  [4;36;1mCaseinUser Load (0.3ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.8ms)
+Rendered shared/_message (0.2ms)
+Completed in 39ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:45:34) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.7ms)
+Rendered shared/_message (0.1ms)
+Completed in 19ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:45:52) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.7ms)
+Rendered shared/_message (0.1ms)
+Completed in 90ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:46:40) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.8ms)
+Rendered shared/_message (0.1ms)
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:50:29) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.7ms)
+Rendered shared/_message (0.1ms)
+Completed in 36ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:51:01) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.9ms)
+Rendered shared/_message (0.1ms)
+Completed in 20ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:51:16) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.8ms)
+Rendered shared/_message (0.1ms)
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:52:03) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.8ms)
+Rendered shared/_message (0.1ms)
+Completed in 92ms (View: 80, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CaseinController#index (for 127.0.0.1 at 2010-09-20 16:52:37) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/admin/blank
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/admin]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 16:52:37) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.2ms)
+Completed in 1466ms (View: 1455, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-20 16:52:43) [GET]
+
+ActionController::RoutingError (No route matches "/ctl" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:52:47) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.8ms)
+Rendered shared/_message (0.1ms)
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:52:56) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.8ms)
+Rendered shared/_message (0.1ms)
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:59:09) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (2.7ms)
+Rendered shared/_message (0.1ms)
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-20 16:59:13) [GET]
+
+ActionController::RoutingError (No route matches "/order" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:59:15) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.7ms)
+Rendered shared/_message (0.1ms)
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CaseinAuthController#logout (for 127.0.0.1 at 2010-09-20 16:59:31) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/casein_auth/login
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/casein_auth/logout]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 16:59:31) [GET]
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/casein_auth/login]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:59:36) [GET]
+  [4;36;1mCaseinUser Load (0.1ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:4000/casein_auth/login
+Filter chain halted as [:authorise] rendered_or_redirected.
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 16:59:36) [GET]
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/casein_auth/login]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 16:59:41) [POST]
+  Parameters: {"commit"=>"Log in", "form_password"=>"password", "authenticity_token"=>"p8EGHnduXs7jJLZ+Ynk1jFHRF+JygvVRQMJ7iNej4V4=", "login"=>"admin"}
+  [4;35;1mCaseinUser Load (0.5ms)[0m   [0mSELECT * FROM "casein_users" WHERE (login = 'admin') LIMIT 1[0m
+Redirected to http://localhost:4000/
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/casein_auth/login]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 16:59:41) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.7ms)
+Rendered shared/_message (0.1ms)
+Completed in 19ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 17:02:23) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (2.5ms)
+Rendered shared/_message (0.1ms)
+Completed in 26ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 17:03:02) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.8ms)
+Rendered shared/_message (0.1ms)
+Completed in 20ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 17:03:41) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.7ms)
+Rendered shared/_message (0.1ms)
+Completed in 20ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 17:03:48) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.8ms)
+Rendered shared/_message (0.1ms)
+Completed in 21ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 17:04:49) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (1.8ms)
+Rendered shared/_message (0.1ms)
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CaseinAuthController#logout (for 127.0.0.1 at 2010-09-20 17:05:03) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/casein_auth/login
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/casein_auth/logout]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 17:05:03) [GET]
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/casein_auth/login]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 17:05:19) [POST]
+  Parameters: {"commit"=>"Log in", "form_password"=>"password", "authenticity_token"=>"p8EGHnduXs7jJLZ+Ynk1jFHRF+JygvVRQMJ7iNej4V4=", "login"=>"admin"}
+  [4;36;1mCaseinUser Load (0.5ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE (login = 'admin') LIMIT 1[0m
+Redirected to http://localhost:4000/admin
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/casein_auth/login]
+
+
+Processing CaseinController#index (for 127.0.0.1 at 2010-09-20 17:05:19) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/admin/blank
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/admin]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 17:05:19) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.2ms)
+Completed in 2047ms (View: 2036, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing CaseinAuthController#logout (for 127.0.0.1 at 2010-09-20 17:05:39) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/casein_auth/login
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/casein_auth/logout]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 17:05:39) [GET]
+Rendering template within layouts/casein_auth
+Rendering casein_auth/login
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/casein_auth/login]
+
+
+Processing CaseinAuthController#login (for 127.0.0.1 at 2010-09-20 17:05:47) [POST]
+  Parameters: {"commit"=>"Log in", "form_password"=>"password", "authenticity_token"=>"p8EGHnduXs7jJLZ+Ynk1jFHRF+JygvVRQMJ7iNej4V4=", "login"=>"admin"}
+  [4;35;1mCaseinUser Load (0.5ms)[0m   [0mSELECT * FROM "casein_users" WHERE (login = 'admin') LIMIT 1[0m
+Redirected to http://localhost:4000/admin
+Completed in 88ms (DB: 1) | 302 Found [http://localhost/casein_auth/login]
+
+
+Processing CaseinController#index (for 127.0.0.1 at 2010-09-20 17:05:47) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/admin/blank
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/admin]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 17:05:47) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.2ms)
+Completed in 1368ms (View: 1356, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 17:08:00) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.2ms)
+Completed in 1468ms (View: 1455, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 17:08:35) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.2ms)
+Completed in 1364ms (View: 1352, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 17:09:02) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.2ms)
+Completed in 1992ms (View: 1979, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 17:09:28) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.2ms)
+Completed in 1478ms (View: 1465, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing CaseinController#blank (for 127.0.0.1 at 2010-09-20 17:12:14) [GET]
+  [4;36;1mCaseinUser Load (0.2ms)[0m   [0;1mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/casein_main
+Rendering casein/blank
+Rendered casein_layouts/_navigation (0.1ms)
+Rendered casein_layouts/_right_navigation (0.7ms)
+Completed in 2232ms (View: 2220, DB: 0) | 200 OK [http://localhost/admin/blank]
+
+
+Processing InvController#index (for 127.0.0.1 at 2010-09-20 17:12:19) [GET]
+  [4;35;1mCaseinUser Load (0.2ms)[0m   [0mSELECT * FROM "casein_users" WHERE ("casein_users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/bf
+Rendering inv/index
+Rendered shared/_menu (2.9ms)
+Rendered shared/_message (0.1ms)
+Completed in 101ms (View: 89, DB: 0) | 200 OK [http://localhost/]
