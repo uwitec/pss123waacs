@@ -16,7 +16,7 @@
 			<div id="dashboard">
 				<% if @session_user != nil %>
 				<ul>
-					<li>Hello <%= @session_user.name %></li>
+					<li>こんにちは&nbsp;<%= @session_user.name %></li>
 					<li><%= link_to 'Profile', :controller => :casein_users, :action => :show, :id => @session_user.id %></li>
 					<li class="lastItem"><%= link_to 'Logout', :controller => :casein_auth, :action => :logout %></li>
 				</ul>	

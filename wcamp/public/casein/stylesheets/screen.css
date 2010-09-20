@@ -11,7 +11,7 @@ body {
 	height: 100%;
 	max-height: 100%; 
 	overflow: hidden;
-	background: white;
+	/* background: white; */
 	color: black;
 	font-family: "Lucida Grande", "Trebuchet MS", Helvetica, Arial, sans-serif;
 	margin: 0;
@@ -151,12 +151,12 @@ div.loginBox {
 	color: #fff;
 	display: block;
 	padding: 12px 12px 10px 12px;
-	background: url(/casein/images/visitSiteNav.png) repeat-x top left;
+	/* background: url(/casein/images/visitSiteNav.png) repeat-x top left; */
 	text-decoration: none;
 }
 
 #altNavigation li a:hover {
-	background: url(/casein/images/visitSiteNav.png) repeat-x bottom left;
+	/* background: url(/casein/images/visitSiteNav.png) repeat-x bottom left; */
 	color: #000;
 }
 
