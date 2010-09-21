@@ -1,12 +1,12 @@
 /* for birdfarm */
 
 body {
-	background: #FFFFCC;
+	background: #CFCFA0;
 }
 
 
 #hd #bd {
-	background: #FFFFCC;
+	background: #CFCFA0;
 }
 
 .yui-skin-sam .yui-navset .yui-content{
@@ -40,7 +40,7 @@ body {
 }
 
 .list table th{
-	background : #486D94;
+	background : #660000;
 	color : #fff;
 	font-weight : bold;
 	padding : 3px;
@@ -52,7 +52,7 @@ body {
 }
 
 .list2 table th{
-	background : #B6C5D4;
+	background : #660000;
 	color : #000;
 	font-weight : bold;
 	padding : 3px;
@@ -60,7 +60,7 @@ body {
 
 .list2 table td{
 	padding : 2px;
-	border-bottom: 1px solid #B6C5D4; 
+	border-bottom: 1px solid #666633; 
 }
 
 .list2 a{
