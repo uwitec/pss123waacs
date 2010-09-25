@@ -149,7 +149,7 @@ module CaseinHelper
 	
 	def casein_date_select form, model, attribute, options = {}
 	  content_for(:calendar_includes)	{calendar_date_select_includes "casein"}
-	  eval("model.#{attribute.to_s} = Time.now") if eval("model.#{attribute.to_s}.nil?")
+	  #eval("model.#{attribute.to_s} = Time.now") if eval("model.#{attribute.to_s}.nil?")
 	  default_options = { :month_year => "label", :embedded => true, :clear_button => false }
 	  contents = content_tag(:div, form.calendar_date_select(attribute, {:class => 'caseinDateSelect'}.reverse_merge!(default_options.merge!(options))), :class => 'caseinDateSelectWrapper')
 	  casein_form_tag_wrapper contents, form, model, attribute, options

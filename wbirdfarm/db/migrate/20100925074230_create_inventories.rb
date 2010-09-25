@@ -1,8 +1,8 @@
-class CreateInventries < ActiveRecord::Migration
+class CreateInventories < ActiveRecord::Migration
   def self.up
-    create_table :inventries do |t|
+    create_table :inventories do |t|
 			t.string :location
-			t.integer :allocated_priority, :default => 0
+			t.integer :allocate_priority, :default => 0
 			t.string :goods_code
 			t.string :goods_name
 			t.integer :qty
@@ -18,6 +18,6 @@ class CreateInventries < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :inventries
+    drop_table :inventories
   end
 end
