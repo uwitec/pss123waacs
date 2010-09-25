@@ -1,6 +1,9 @@
 include CaseinAddRoutes
 ActionController::Routing::Routes.draw do |map|
+  map.resources :shipping_addresses
+
 	CaseinAddRoutes::mapper map
+  map.resources :casein_shipping_addresses
   map.resources :casein_inventories
   map.resources :casein_ware_houses
   map.resources :casein_regions

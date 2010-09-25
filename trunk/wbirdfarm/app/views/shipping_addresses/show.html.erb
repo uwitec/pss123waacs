@@ -1,0 +1,53 @@
+<p>
+  <b>Name:</b>
+  <%=h @shipping_address.name %>
+</p>
+
+<p>
+  <b>Customer code:</b>
+  <%=h @shipping_address.customer_code %>
+</p>
+
+<p>
+  <b>Zip code:</b>
+  <%=h @shipping_address.zip_code %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @shipping_address.address %>
+</p>
+
+<p>
+  <b>Tel:</b>
+  <%=h @shipping_address.tel %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%=h @shipping_address.fax %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @shipping_address.email %>
+</p>
+
+<p>
+  <b>Is fixed:</b>
+  <%=h @shipping_address.is_fixed %>
+</p>
+
+<p>
+  <b>Picking style:</b>
+  <%=h @shipping_address.picking_style %>
+</p>
+
+<p>
+  <b>Ware house:</b>
+  <%=h @shipping_address.ware_house_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_shipping_address_path(@shipping_address) %> |
+<%= link_to 'Back', shipping_addresses_path %>
