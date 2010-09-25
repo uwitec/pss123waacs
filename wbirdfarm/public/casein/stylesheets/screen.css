@@ -115,18 +115,20 @@ div.loginBox {
 #navigation li a {
 	color: #fff;
 	padding: 11px 12px 9px 12px;
-	background: url(/casein/images/nav.png) repeat-x bottom left; 
+	/* background: url(/casein/images/nav.png) repeat-x bottom left; */
 	text-decoration: none;
 }
 
 #navigation li a:hover {
   padding: 11px 12px 9px 12px;
-	background: url(/casein/images/nav.png) repeat-x top left;
+	/* background: url(/casein/images/nav.png) repeat-x top left; */
+	background : #FF9999;
 	color: #000;
 }
 
 #navigation .active a {
-	background: url(/casein/images/nav.png) repeat-x top left;
+	/* background: url(/casein/images/nav.png) repeat-x top left; */
+	background : #FF9999;
 	color: #000;
 }
 
