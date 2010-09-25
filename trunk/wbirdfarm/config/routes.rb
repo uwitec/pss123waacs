@@ -1,6 +1,7 @@
 include CaseinAddRoutes
 ActionController::Routing::Routes.draw do |map|
 	CaseinAddRoutes::mapper map
+  map.resources :casein_inventories
   map.resources :casein_ware_houses
   map.resources :casein_regions
   # The priority is based upon order of creation: first created -> highest priority.

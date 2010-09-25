@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100925054216) do
+ActiveRecord::Schema.define(:version => 20100925074230) do
 
   create_table "casein_users", :force => true do |t|
     t.string   "login",                       :null => false
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(:version => 20100925054216) do
     t.datetime "updated_at"
   end
 
-  create_table "inventries", :force => true do |t|
+  create_table "inventories", :force => true do |t|
     t.string   "location"
-    t.integer  "allocated_priority", :default => 0
+    t.integer  "allocate_priority", :default => 0
     t.string   "goods_code"
     t.string   "goods_name"
     t.integer  "qty"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20100925054216) do
     t.integer  "allocated_qty"
     t.string   "lot_no"
     t.date     "expiry_on"
-    t.boolean  "is_fixed",           :default => true
-    t.string   "picking_style",      :default => "single"
+    t.boolean  "is_fixed",          :default => true
+    t.string   "picking_style",     :default => "single"
     t.integer  "ware_house_id"
     t.datetime "created_at"
     t.datetime "updated_at"
