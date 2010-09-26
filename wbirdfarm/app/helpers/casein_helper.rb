@@ -23,7 +23,7 @@ module CaseinHelper
 	
 	def casein_render_right_bar_partial
 	 	return "" if params[:action] == "blank" 
-	 	params[:action] = 'new' if params[:action] == "create" 
+	 	params[:action] = 'new' if params[:action] == "create" # add baker 2010/9/25
 	  view_filename = params[:controller] + "/_" + params[:action] + "_right_bar.html.erb"
 	  render(:file => view_filename, :locals => {:id => params[:id]})
 	  
