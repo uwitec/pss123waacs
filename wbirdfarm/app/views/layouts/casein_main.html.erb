@@ -30,7 +30,7 @@
 			<div id="altNavigation">
 				<ul>
 					<% if @session_user.is_admin? %>
-						<li><%= link_to 'Users', :controller => :casein_users, :action => :index %></li>
+						<li><%= link_to t('activerecord.models.user'), :controller => :casein_users, :action => :index %></li>
 					<% end %>
 					<%= render(:file => '/casein_layouts/_right_navigation') %>
 				</ul>

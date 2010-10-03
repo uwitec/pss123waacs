@@ -1,126 +1,143 @@
 ja: 
   activerecord: 
     models: 
-      inventory: "inventory"  #g
-      receive: "受信"  #g
-      ship_order: "ship_order"  #g
-      edi_file: "電子データ交換"  #g
-      waacs_code: "waacs_code"  #g
-      work_order: "work_order"  #g
-      work_receive: "work_receive"  #g
+      good: "商品" 
+      inventory: "ロケーション別在庫"
+      order: "注文"
+      region: "管轄地域"
+      shipping_address: "配送先"
+      ware_house: "倉庫"
+      user: "登録者"
 
     attributes: 
+      good: 
+        name: "name"  #g
+        code: "code"  #g
+        note: "note"  #g
+        is_fixed: "is_fixed"  #g
+
       inventory: 
-        work_no: "ない機能"  #g
-        location: "場所"  #g
-        goods_code: "商品コード"  #g
-        goods_name: "商品名"  #g
-        system_qty: "システム個数"  #g
-        result_qty: "結果個数"  #g
-
-      receive: 
-        work_no: "ない機能"  #g
-        waacs_code: "Waacsコード"  #g
-        goods_code: "商品コード"  #g
         location: "ロケーション"  #g
-        announced_qty: "発表個数"  #g
-        result_qty: "結果個数"  #g
-        user_code: "ユーザコード"  #g
-        goods_name: "商品名"  #g
-        comment: "コメント"  #g
-        edi_code: "edi_code"  #g
-        quality_status: "quality_status"  #g
-        status: "ステータス"  #g
-        supplier: "サプライヤー"  #g
-
-      ship_order: 
-        work_no: "ない機能"  #g
-        work_line_no: "作業ラインは"  #g
-        location: "場所"  #g
+        allocate_priority: "割り当ての優先順位"  #g
         goods_code: "商品コード"  #g
-        waacs_code: "Waacsコード"  #g
-        order_qty: "注文数量"  #g
-        result_qty: "結果個数"  #g
-        user_code: "ユーザコード"  #g
-        start_at: "でスタート"  #g
-        end_at: "最後に"  #g
         goods_name: "商品名"  #g
-        delivery_name: "配信名"  #g
-        comment: "コメント"  #g
-        status: "ステータス"  #g
-        edi_code: "エディコード"  #g
-        quality_status: "品質状態"  #g
+        qty: "個数"  #g
+        ordered_qty: "順序数量"  #g
+        allocated_qty: "allocated_qty"  #g
+        lot_no: "ロットなし"  #g
+        expiry_on: "expiry_on"  #g
+        is_fixed: "is_fixed"  #g
+        picking_style: "スタイルを選ぶ"  #g
+        ware_house: "倉庫"  #g
 
-      edi_file: 
-        class_name: "種別"  #g
-        edi_code: "ファイルID"  #g
-        file_path: "EDIファイル"  #g
-        edi_at: "実行時刻"  #g
-        device_name: "装置名"  #g
+      order: 
+        order_no: "order_no"  #g
+        issued_on: "issued_on"  #g
+        customer_code: "customer_code"  #g
+        goods_code: "goods_code"  #g
+        order_qty: "order_qty"  #g
+        original_data: "オリジナルデータ"  #g
+        store_code: "store_code"  #g
+        shipping_address: "shipping_address"  #g
+        ware_house: "ウェアハウス"  #g
 
-      waacs_code: 
-        code: "コード"  #g
+      region: 
         name: "名"  #g
-        device: "デバイス"  #g
-        device_code: "デバイスコード"  #g
-        logic: "ロジック"  #g
+        code: "コード"  #g
+        ware_houses: "ウェアハウス"  #g
 
-      work_order: 
-        work_no: "ない機能"  #g
-        start_at: "でスタート"  #g
-        end_at: "最後に"  #g
-        max_status: "最大ステータス"  #g
-        sum: "合計"  #g
+      shipping_address: 
+        name: "名"  #g
+        customer_code: "顧客コード"  #g
+        zip_code: "郵便番号"  #g
+        address: "住所"  #g
+        tel: "電話番号"  #g
+        fax: "ファックス"  #g
+        email: "Eメール"  #g
+        is_fixed: "固定されています"  #g
+        picking_style: "スタイルを選ぶ"  #g
+        code: "コード"  #g
+        orders: "受注"  #g
+        ware_house: "ウェアハウス"  #g
 
-      work_receive: 
-        work_no: "ない機能"  #g
-        max_status: "最大ステータス"  #g
-        sum: "合計"  #g
+      ware_house: 
+        name: "名"  #g
+        code: "コード"  #g
+        allocate_priority: "割り当ての優先順位"  #g
+        orders: "受注"  #g
+        region: "リージョン"  #g
+        inventories: "たな卸資産"  #g
+        shipping_addresses: "送料はアドレス"  #g
 
   label: 
-    models: 
-      ship_order: "出荷指示"  #g
-      receive: "入荷"  #g
+      good: "good"  #g
+      inventory: "inventory"  #g
+      order: "order"  #g
+      region: "region"  #g
+      shipping_address: "shipping_address"  #g
+      ware_house: "ware_house"  #g
+      user: "登録者"
 
-    ship_order: 
-      work_no: "出荷管理番号"  #g
-      status: "状態"  #g
-      work_line_no: "行#"  #g
-      location: "ロケーション"  #g
-      goods_code: "商品コード"  #g
-      goods_name: "商品"  #g
-      order_qty: "注文数量"  #g
-      result_qty: "出荷数量"  #g
-      delivery_name: "配送先"  #g
-      start_at: "開始時間"  #g
-      end_at: "終了時間"  #g
-      device: "物流機器"  #g
-      user_code: "作業者ID"  #g
+      user:
+        login: "利用者ID"
+        name: "利用者"
+        status: "権限"
 
-    receive: 
-      work_no: "管理番号"  #g
-      status: "状態"  #g
-      supplier: "納入業者"  #g
-      goods_code: "商品コード"  #g
-      goods_name: "商品名"  #g
-      location: "ロケーション"  #g
-      announced_qty: "予定数"  #g
-      result_qty: "結果数"  #g
+      good: 
+        name: "name"  #g
+        code: "code"  #g
+        note: "note"  #g
+        is_fixed: "is_fixed"  #g
 
-    form: 
-      refresh: "最新を表示"  #g
+      inventory: 
+        location: "ロケーション"
+        allocate_priority: "引当順位" 
+        goods_code: "商品コード"
+        goods_name: "商品名"
+        qty: "個数"
+        ordered_qty: "注文数"
+        allocated_qty: "引当数"
+        lot_no: "ロット#" 
+        expiry_on: "有効期限"
+        is_fixed: "確定?"
+        picking_style: "ピッキング方式"
+        ware_house: "倉庫"
 
-    edi: 
-      class_name: "種別"  #g
-      lines: "行"  #g
-      status: "ステータス"  #g
-      last_edi_at: "最新実行時刻"  #g
-      rake_name: "手動実施"  #g
+      order: 
+        order_no: "受注No"
+        issued_on: "発行日"
+        customer_code: "顧客コード"
+        goods_code: "商品コード"
+        order_qty: "注文数"
+        original_data: "元データ"
+        store_code: "店舗コード"
+        shipping_address: "配送先"
+        ware_house: "管轄倉庫"
 
-    edi_file: 
-      class_name: "種別"  #g
-      edi_code: "ファイルID"  #g
-      edi_at: "実行時刻"  #g
-      device: "物流機器"  #g
-      show_status: "ステータス"  #g
+      region: 
+        name: "地域名"
+        code: "地域コード"
+        ware_houses: "管轄倉庫"
 
+      shipping_address: 
+        name: "配送先名"
+        customer_code: "顧客コード"
+        zip_code: "郵便番号"
+        address: "住所"
+        tel: "電話番号"
+        fax: "ファックス"
+        email: "Eメール"
+        is_fixed: "確定区分"
+        picking_style: "ピッキング方式" 
+        code: "店舗コード"
+        orders: "受注"
+        ware_house: "管轄倉庫"
+
+      ware_house: 
+        name: "倉庫名"
+        code: "倉庫コード"
+        allocate_priority: "引当順位"
+        orders: "受注"
+        region: "所属管轄地域"
+        inventories: "在庫" 
+        shipping_addresses: "配送先"
