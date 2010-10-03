@@ -1,0 +1,26 @@
+shipping_addresses :
+  file : 
+  cols :
+    code : 4
+    name : 6
+    customer_code : 3
+
+inventories :
+  file : 
+  cols :
+    goods_code : 7
+    goods_name : 8 
+
+orders :
+  file :
+  cols :
+    order_no : 0
+    issued_on : 1
+    customer_code : 3
+    store_code : 4
+    goods_code : 7
+    order_qty : 9
+
+
+#	  0    1      2        3          4          5      6      7          8      9    10   11   12
+# 注文No,注文日,注文行No,顧客コード,店舗コード,顧客名,店舗名,商品コード,商品名,数量,単価,金額,備考
