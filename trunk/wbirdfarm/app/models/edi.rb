@@ -25,8 +25,11 @@ class Edi
 		CSV::open(file,"r").each do |csv|
 			line_no += 1
 			next if line_no == 1
-			tables.each{|table| eval "@#{table}.push @#{table}_cols.values.map{|pos| csv[pos]}"}
-			@orders
+			tables.each do |table| 
+				eval "
+					@#{table}.push @#{table}_cols.values.map{|pos| pos == 'all' ? csv.join(',') : csv[pos]}
+				"
+			end
 		end
 		tables.each do |table| 
 			eval "@#{table}_records = @#{table}.uniq.compact.collect{|r| Hash[*(@#{table}_cols.keys.zip(r).flatten)]}
