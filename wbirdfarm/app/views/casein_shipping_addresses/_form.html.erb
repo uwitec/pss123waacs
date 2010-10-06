@@ -10,34 +10,38 @@
 </div>
 
 <div class="tfContainer">
+	<%= casein_text_field form, shipping_address, :code %>
+</div>
+
+<div class="tfContainer tfContainerSecond">
 	<%= casein_text_field form, shipping_address, :zip_code %>
 </div>
 
-<div class="tfContainer tfContainerSecond">
+<div class="tfContainer">
 	<%= casein_text_field form, shipping_address, :address %>
 </div>
 
-<div class="tfContainer">
+<div class="tfContainer tfContainerSecond">
 	<%= casein_text_field form, shipping_address, :tel %>
 </div>
 
-<div class="tfContainer tfContainerSecond">
+<div class="tfContainer">
 	<%= casein_text_field form, shipping_address, :fax %>
 </div>
 
-<div class="tfContainer">
+<div class="tfContainer tfContainerSecond">
 	<%= casein_text_field form, shipping_address, :email %>
 </div>
 
-<div class="tfContainer tfContainerSecond">
+<div class="tfContainer">
 	<%= casein_check_box form, shipping_address, :is_fixed %>
 </div>
 
-<div class="tfContainer">
+<div class="tfContainer tfContainerSecond">
 	<%= casein_select form, shipping_address, :picking_style, Inventory::PICKING_STYLE, :include_blank => true %>
 </div>
 
-<div class="tfContainer tfContainerSecond">
+<div class="tfContainer">
 	<%= casein_select form, shipping_address, :ware_house_id, WareHouse.all.collect{|w| [w.name, w.id]}, {:include_blank => true} %>
 </div>
 
