@@ -7,10 +7,15 @@ class CaseinOrdersController < CaseinController
   # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
  
   def index
-		if request.get?
+		#if request.get?
 			@casein_page_title = 'Orders'
-			@orders = Order.paginate :all, :page => params[:page]
-		end
+			@search = params[:search]
+			@orders = Order.order_no_or_store_code_or_customer_code_like(@search).paginate :all, :page => params[:page]
+		#end
+  end
+	
+  def search 
+		redirect_to :action => 'index'
   end
  
   def new
