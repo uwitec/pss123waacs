@@ -59,4 +59,11 @@ class Edi
 			end
 		end
 	end
+
+	def self.set_ware_house
+		orders = Order.find(:all, :conditions => "ware_house_id is null")
+		orders.each do |order|
+			order.set_ware_house
+		end
+	end
 end
