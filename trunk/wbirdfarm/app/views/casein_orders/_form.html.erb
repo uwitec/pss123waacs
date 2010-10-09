@@ -2,39 +2,48 @@
 
 
 <div class="tfContainer">
-	<%= casein_text_field form, order, :order_no %>
+	<%= casein_text_field form, order, :order_no,
+	:casein_label => t('label.order.order_no') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_date_select form, order, :issued_on, :embedded => false, :clear_button => true %>
+	<%= casein_date_select form, order, :issued_on, :embedded => false, :clear_button => true,
+	:casein_label => t('label.order.issued_on') %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_text_field form, order, :customer_code %>
+	<%= casein_text_field form, order, :customer_code,
+	:casein_label => t('label.order.customer_code') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_text_field form, order, :store_code %>
+	<%= casein_text_field form, order, :store_code,
+	:casein_label => t('label.order.store_code') %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_text_field form, order, :goods_code %>
+	<%= casein_text_field form, order, :goods_code,
+	:casein_label => t('label.order.goods_code') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_text_field form, order, :order_qty %>
+	<%= casein_text_field form, order, :order_qty,
+	:casein_label => t('label.order.order_qty') %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_select form, order, :ware_house_id, WareHouse.all.collect{|w| [w.name, w.id]}, {:include_blank => true} %>
+	<%= casein_select form, order, :ware_house_id, WareHouse.all.collect{|w| [w.name, w.id]},
+	{:include_blank => true, :casein_label => t('label.order.ware_house')} %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_select form, order, :shipping_address_id, ShippingAddress.all.collect{|w| [w.name, w.id]}, {:include_blank => true} %>
+	<%= casein_select form, order, :shipping_address_id, ShippingAddress.all.collect{|w| [w.name, w.id]},
+	{:include_blank => true, :casein_label => t('label.order.shipping_address')} %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_text_area form, order, :original_data %>
+	<%= casein_text_area form, order, :original_data,
+	:casein_label => t('label.order.original_data') %>
 </div>
 
 <div class="clearer"></div>

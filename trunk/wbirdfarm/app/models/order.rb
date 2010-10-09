@@ -7,4 +7,11 @@ class Order < ActiveRecord::Base
 	def show_ware_house_name
 		self.ware_house.nil? ? '-' : self.ware_house.name
 	end
+
+	def set_ware_house
+		shipping_address = (self.shipping_address || ShippingAddress.find_by_code(self.store_code))
+		if shipping_address
+			shipping_address.ware_house.orders << self
+		end
+	end
 end

@@ -70,24 +70,17 @@ ja:
         shipping_addresses: "送料はアドレス"  #g
 
   label: 
-      good: "good"  #g
-      inventory: "inventory"  #g
-      order: "order"  #g
-      region: "region"  #g
-      shipping_address: "shipping_address"  #g
-      ware_house: "ware_house"  #g
-      user: "登録者"
-
+      message:
       user:
         login: "利用者ID"
         name: "利用者"
         status: "権限"
 
       good: 
-        name: "name"  #g
-        code: "code"  #g
-        note: "note"  #g
-        is_fixed: "is_fixed"  #g
+        name: "商品名"
+        code: "商品コード"
+        note: "補足"
+        is_fixed: "確定区分"
 
       inventory: 
         location: "ロケーション"
