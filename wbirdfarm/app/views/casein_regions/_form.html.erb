@@ -2,11 +2,13 @@
 
 
 <div class="tfContainer">
-	<%= casein_text_field form, region, :name %>
+	<%= casein_text_field form, region, :name,
+	:casein_label => t('label.region.name') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_text_field form, region, :code %>
+	<%= casein_text_field form, region, :code,
+	:casein_label => t('label.region.code') %>
 </div>
 
 

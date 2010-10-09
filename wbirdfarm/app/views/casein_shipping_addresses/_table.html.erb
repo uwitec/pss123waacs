@@ -8,6 +8,7 @@
 		<th><%= t 'label.shipping_address.zip_code' %></th>
 		<th><%= t 'label.shipping_address.picking_style' %></th>
 		<th><%= t 'label.shipping_address.ware_house' %></th>
+		<th><%= t 'label.shipping_address.is_fixed' %></th>
 		<th>&nbsp;</th>
 	</tr>
 	
@@ -21,6 +22,7 @@
 			<td><%= casein_table_cell_link shipping_address.zip_code, shipping_address %></td>
 			<td><%= casein_table_cell_link shipping_address.picking_style, shipping_address %></td>
 			<td><%= casein_table_cell_link shipping_address.show_ware_house_name, shipping_address %></td>
+			<td><%= casein_table_cell_link shipping_address.is_fixed, shipping_address %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("delete"), casein_shipping_address_path(shipping_address), :method => :delete, :confirm => "Are you sure you want to delete this shipping address?") %>
 			</td>

@@ -2,19 +2,23 @@
 
 
 <div class="tfContainer">
-	<%= casein_text_field form, ware_house, :name %>
+	<%= casein_text_field form, ware_house, :name,
+	:casein_label => t('label.ware_house.name') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_text_field form, ware_house, :code %>
+	<%= casein_text_field form, ware_house, :code,
+	:casein_label => t('label.ware_house.code') %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_text_field form, ware_house, :allocate_priority %>
+	<%= casein_text_field form, ware_house, :allocate_priority,
+	:casein_label => t('label.ware_house.allocate_priority') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_select form, ware_house, :region_id, Region.all.collect{|r| [r.name, r.id]},{:include_blank => true} %>
+	<%= casein_select form, ware_house, :region_id, Region.all.collect{|r| [r.name, r.id]},
+	{:include_blank => true, :casein_label => t('label.ware_house.region')} %>
 </div>
 
 

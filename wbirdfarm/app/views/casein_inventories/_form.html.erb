@@ -2,51 +2,63 @@
 
 
 <div class="tfContainer">
-	<%= casein_text_field form, inventory, :location %>
+	<%= casein_text_field form, inventory, :location,
+	:casein_label => t('label.inventory.location') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_text_field form, inventory, :allocate_priority %>
+	<%= casein_text_field form, inventory, :allocate_priority,
+	:casein_label => t('label.inventory.allocate_priority') %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_text_field form, inventory, :goods_code %>
+	<%= casein_text_field form, inventory, :goods_code,
+	:casein_label => t('label.inventory.goods_code') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_text_field form, inventory, :goods_name %>
+	<%= casein_text_field form, inventory, :goods_name,
+	:casein_label => t('label.inventory.goods_name') %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_text_field form, inventory, :qty %>
+	<%= casein_text_field form, inventory, :qty,
+	:casein_label => t('label.inventory.qty') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_text_field form, inventory, :ordered_qty %>
+	<%= casein_text_field form, inventory, :ordered_qty,
+	:casein_label => t('label.inventory.ordered_qty') %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_text_field form, inventory, :allocated_qty %>
+	<%= casein_text_field form, inventory, :allocated_qty,
+	:casein_label => t('label.inventory.allocated_qty') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_text_field form, inventory, :lot_no %>
+	<%= casein_text_field form, inventory, :lot_no,
+	:casein_label => t('label.inventory.lot_no') %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_date_select form, inventory, :expiry_on, :embedded => false, :clear_button => true %>
+	<%= casein_date_select form, inventory, :expiry_on, :embedded => false, :clear_button => true,
+	:casein_label => t('label.inventory.expiry_on') %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_check_box form, inventory, :is_fixed %>
+	<%= casein_check_box form, inventory, :is_fixed,
+	:casein_label => t('label.inventory.is_fixed') %>
 </div>
 
 <div class="tfContainer">
-	<%= casein_select form, inventory, :picking_style, %w(single total),{:include_blank => true} %>
+	<%= casein_select form, inventory, :picking_style, Inventory::PICKING_STYLE,
+	{:include_blank => true, :casein_label => t('label.inventory.picking_style')} %>
 </div>
 
 <div class="tfContainer tfContainerSecond">
-	<%= casein_select form, inventory, :ware_house_id, WareHouse.all.collect{|w| [w.name, w.id]}, {:include_blank => true} %>
+	<%= casein_select form, inventory, :ware_house_id, WareHouse.all.collect{|w| [w.name, w.id]},
+	{:include_blank => true, :casein_label => t('label.inventory.ware_house')} %>
 </div>
 
 

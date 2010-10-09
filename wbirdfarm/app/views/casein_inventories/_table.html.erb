@@ -11,6 +11,7 @@
 		<th><%= t 'label.inventory.ordered_qty' %></th>
 		<th><%= t 'label.inventory.allocated_qty' %></th>
 		<th><%= t 'label.inventory.picking_style' %></th>
+		<th><%= t 'label.inventory.is_fixed' %></th>
 		<th>&nbsp;</th>
 	</tr>
 	
@@ -27,6 +28,7 @@
 			<td><%= casein_table_cell_link inventory.ordered_qty, inventory %></td>
 			<td><%= casein_table_cell_link inventory.allocated_qty, inventory %></td>
 			<td><%= casein_table_cell_link inventory.picking_style, inventory %></td>
+			<td><%= casein_table_cell_link inventory.is_fixed, inventory %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("delete"), casein_inventory_path(inventory), :method => :delete, :confirm => "Are you sure you want to delete this inventory?") %>
 			</td>

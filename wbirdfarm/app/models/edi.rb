@@ -55,6 +55,7 @@ class Edi
 				if shipping_address = ShippingAddress.find_by_code(order.store_code)	
 					shipping_address.orders << order
 				end
+				order.set_ware_house
 			end
 		end
 	end
