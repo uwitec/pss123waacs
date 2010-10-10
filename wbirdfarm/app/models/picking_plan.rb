@@ -1,7 +1,8 @@
 class PickingPlan #< ActiveRecord::Base
 	
 	def self.allocate 
-		orders = Order.find(:all, :conditions => "allocate_status is null or allocate_status = ''")			
+		# total picking order allocation
+		orders = Order.not_allocated.picking('total')
 		return false if orders.size == 0
 		customer_codes = orders.map{|order| order.customer_code}.uniq.compact
 		orders_for = {}
@@ -31,11 +32,19 @@ class PickingPlan #< ActiveRecord::Base
 				end
 				picking_list.push [0, customer_code, goods_code, '-', balance_qty] if balance_qty > 0
 			end	
-			p picking_list
+			self.show_picking_list(picking_list)
 		end
 	end
 
 	def self.allocated_qty_clear
 		Inventory.find(:all).each{|inv| inv.allocated_qty = 0;inv.save}
+	end
+
+	private
+	def self.show_picking_list report = []
+		report.each do |line|
+			line.each{ |item| $stdout.printf "%10s", item}
+			$stdout.print("\n")
+		end	
 	end
 end
