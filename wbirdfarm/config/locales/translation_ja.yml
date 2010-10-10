@@ -106,6 +106,7 @@ ja:
         store_code: "店舗コード"
         shipping_address: "配送先"
         ware_house: "管轄倉庫"
+        allocate_status : "引当状態"
 
       region: 
         name: "地域名"

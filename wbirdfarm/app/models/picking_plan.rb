@@ -63,14 +63,21 @@ class PickingPlan #< ActiveRecord::Base
 				balance_qty -= pick_qty
 				break if balance_qty <= 0
 			end
-			picking_list.push [order.customer_code, order.store_code, order.goods_code, 'ZZZ', balance_qty, order.id, 0] if balance_qty > 0
+			order.allocate_status = 'fix'
+			if balance_qty > 0
+				order.allocate_status = 'stockout'
+				picking_list.push [order.customer_code, order.store_code, order.goods_code, 'ZZZ', balance_qty, order.id, 0] 
+			end
+			order.save
 		end	
-		# todo changed allocated_status
 		picking_list
 	end
 
-	def self.allocated_qty_clear
+	def self.allocated_clear
+		inventories = Inventory.all(:conditions => "allocated_qty is not null or allocated_qty = 0")
 		Inventory.find(:all).each{|inv| inv.allocated_qty = 0;inv.save}
+		orders = Order.all(:conditions => {:allocate_status => ['fix', 'stockout']})
+		orders.each{|order| order.allocate_status = '';order.save}
 	end
 
 	def self.show_picking_list report = []
