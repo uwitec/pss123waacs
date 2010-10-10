@@ -4,6 +4,11 @@ class Order < ActiveRecord::Base
 
 	validates_uniqueness_of :goods_code, :scope => [:order_no]
 
+	AllocateStatusType = [
+		%w(fix 引当済),
+		%w(stockout 欠品)
+	].freeze
+
 	named_scope :not_allocated, :conditions => "allocate_status is null or allocate_status = ''"			
 	named_scope :picking, lambda{|p| {:conditions => ["shipping_addresses.picking_style = ?",p] ,:include => :shipping_address}}
 
@@ -16,5 +21,9 @@ class Order < ActiveRecord::Base
 		if shipping_address
 			shipping_address.ware_house.orders << self
 		end
+	end
+
+	def show_allocate_status
+		AllocateStatusType.assoc(self.allocate_status)[1] rescue '-'
 	end
 end

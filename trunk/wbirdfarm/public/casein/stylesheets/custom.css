@@ -13,3 +13,7 @@ body {
 #navigation li a {
 	background : #990000;
 }
+
+.num {
+	text-align: right;
+}

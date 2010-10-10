@@ -8,6 +8,7 @@
 		<th><%= t 'label.order.store_code' %></th>
 		<th><%= t 'label.order.goods_code' %></th>
 		<th><%= t 'label.order.order_qty' %></th>
+		<th><%= t 'label.order.allocate_status' %></th>
 		<th><%= t 'label.order.ware_house' %></th>
 		<th>&nbsp;</th>
 	</tr>
@@ -21,7 +22,8 @@
 			<td><%= casein_table_cell_link order.customer_code, order %></td>
 			<td><%= casein_table_cell_link order.store_code, order %></td>
 			<td><%= casein_table_cell_link order.goods_code, order %></td>
-			<td><%= casein_table_cell_link order.order_qty, order %></td>
+			<td class="num"><%= casein_table_cell_link order.order_qty, order %></td>
+			<td><%= casein_table_cell_link order.show_allocate_status, order %></td>
 			<td><%= casein_table_cell_link order.show_ware_house_name, order %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("delete"), casein_order_path(order), :method => :delete, :confirm => "Are you sure you want to delete this order?") %>
