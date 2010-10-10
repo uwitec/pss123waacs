@@ -9,7 +9,7 @@ class Inventory < ActiveRecord::Base
 		self.ware_house.nil? ? '-' : self.ware_house.name
 	end
 
-	def sim_ty
-		self.qty + self.allocated_qty
+	def sim_qty
+		self.qty.to_i + self.allocated_qty.to_i
 	end
 end
