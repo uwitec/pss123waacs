@@ -2,9 +2,9 @@
 	float: right;
 	margin: 0;
 	padding: 0 0 0px 10px;
-	border-top: 1px solid #660000;
-	border-bottom: 1px solid #660000;
-	background: #990000;
+	/* border-top: 1px solid #660000;
+	border-bottom: 1px solid #660000; */
+	background: #660000;
 }
 
 #topnav ul, #topnav li{
@@ -31,5 +31,6 @@
 }
 
 #topnav a:hover{
-	color: #000;
+	/* color: #000; */
+	color: #CFCFA0;
 }
