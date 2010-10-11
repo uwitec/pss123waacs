@@ -1,2 +1,24 @@
-<h1>Edi#index</h1>
-<p>Find me in app/views/edi/index.html.erb</p>
+<div class="yui3-main">
+	<div class="yui3-gf">
+		<div class="yui3-u first">
+			<div id="ware_house_list">
+				<%= render :partial => "shared/ware_house_list" %>
+			</div>
+		</div>
+		<div class="yui3-u">
+			<div class="yui3-b">
+				&nbsp;
+			</div>
+			<div class="yui3-b">
+				<div class="yui3-gc">
+					<div class="yui3-u first" id="edi_class_list">
+						<%= render :partial => 'edi_class_list' %>
+					</div>
+					<div class="yui3-u" id="edi_file_list">
+						<%= render :partial => 'edi_file_list' %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

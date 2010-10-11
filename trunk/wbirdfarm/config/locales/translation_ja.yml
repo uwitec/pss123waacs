@@ -70,6 +70,8 @@ ja:
         shipping_addresses: "送料はアドレス"  #g
 
   label: 
+      form: 
+        refresh: "最新を表示"
       message:
       user:
         login: "利用者ID"
@@ -135,3 +137,10 @@ ja:
         region: "所属管轄地域"
         inventories: "在庫" 
         shipping_addresses: "配送先"
+
+      edi:
+        class_name: "種別"
+        lines: "行"
+        status: "ステータス"
+        last_edi_at: "最新実行時刻"
+        rake_name: "手動実施"
