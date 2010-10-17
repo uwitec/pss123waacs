@@ -1,0 +1,35 @@
+<div class="list">
+	<%= will_paginate @inventories, 
+		:previous_label => '<<前', :next_label => '次>>',
+ 		:renderer => 'RemoteLinkRenderer', 
+		:params => {:action => 'search', :search => @search}
+	%>
+	<table width="100%">
+	<thead>
+	<tr>
+		<th><%= t 'label.inventory.ware_house' %></th>
+		<th><%= t 'label.inventory.location' %></th>
+		<th><%= t 'label.inventory.goods_code' %></th>
+		<th><%= t 'label.inventory.goods_name' %></th>
+		<th class="num"><%= t 'label.inventory.qty' %></th>
+		<th class="num"><%= t 'label.inventory.allocated_qty' %></th>
+		<th class="num"><%= t 'label.inventory.is_fixed' %></th>
+		<th>&nbsp;</th>
+	</tr>
+	</thead>
+	<tbody>
+	<% for inventory in @inventories %>
+		<tr>
+			<td><%= inventory.show_ware_house_name %></td>
+			<td><%= inventory.location %></td>
+			<td><%= inventory.goods_code %></td>
+			<td><%= inventory.goods_name %></td>
+			<td class="num"><%= inventory.qty %></td>
+			<td class="num"><%= inventory.allocated_qty %></td>
+			<td class="num"><%= inventory.show_is_fixed %></td>
+			<td>&nbsp;</td>
+		</tr>
+	<% end %>
+	</tbody>
+	</table>
+</div>

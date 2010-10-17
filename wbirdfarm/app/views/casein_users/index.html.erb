@@ -5,6 +5,7 @@
 		<th><%= t('label.user.login') %></th>
 		<th><%= t('label.user.name') %></th>
 		<th><%= t('label.user.status') %></th>
+		<th><%= t('label.user.ware_house') %></th>
 		<th>&nbsp;</th>
 	</tr>
 	
@@ -15,6 +16,7 @@
 			<td><%= casein_table_cell_link user.login, user %></td>
 			<td><%= casein_table_cell_link user.name, user %></td>
 			<td><%= casein_table_cell_link(casein_get_access_level_text(user.access_level), user) %></td>
+			<td><%= user.show_ware_house_name %></td>
 			<td class="delete">
 				<% if user.is_admin? == false || CaseinUser.has_more_than_one_admin %>
 					<% confirm_message = "Are you sure you want to delete #{user.name}?" %>
@@ -23,7 +25,7 @@
 						<% confirm_message += "\n\nWARNING: This is your user account. You will be logged out if you proceed." %>
 					<% end %>
 				
-					<%= link_to(casein_show_row_icon("delete"), casein_user_path(user), :method => :delete, :confirm => confirm_message) %></td>
+					<%= link_to(casein_show_row_icon("delete"), casein_user_path(user), :method => :delete, :confirm => confirm_message) %>
 				<% end %>
 			</td>
 		</tr>

@@ -1,7 +1,7 @@
 class InfoCatcher
 	require 'rss'
 	require 'uri'
-	attr_accessor :title, :description, :link, :published_at
+	attr_accessor :item_title, :description, :link, :published_at
 	
 	def initialize
 		@title = nil
@@ -20,7 +20,7 @@ class InfoCatcher
 					rss_result = RSS::Parser.parse(response, false)
 					rss_result.items.each do |item|
 						obj = self.new
-						obj.title = item.title
+						obj.item_title = item.title
 						obj.description = item.content
 						obj.link = item.link
 						obj.published_at = item.date

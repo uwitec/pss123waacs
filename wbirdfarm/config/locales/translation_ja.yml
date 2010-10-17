@@ -77,6 +77,8 @@ ja:
         login: "利用者ID"
         name: "利用者"
         status: "権限"
+        email: "Eメール"
+        ware_house: "所属倉庫"
 
       good: 
         name: "商品名"

@@ -5,5 +5,17 @@
 		</div>
 	</div>
 	<div class="yui3-u">
+		<div class="yui3-b">
+			<% form_remote_tag :url => '/inv/search' do -%>
+				<div id="search_div">
+					<%= render :partial => "shared/search_inv" %>
+				</div>
+			<% end %>
+		</div>
+		<div class="yui3-b">
+			<div id="inv_list">
+				<%= render :partial => "inv_list" %>
+			</div>
+		</div>
 	</div>
 </div>

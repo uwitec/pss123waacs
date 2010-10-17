@@ -3,21 +3,30 @@
 <% form_for :casein_user, @casein_user, :url => casein_user_path(@casein_user), :html => {:method => :put} do |form| %>
 
 	<div class="tfContainer">
-		<%= casein_text_field form, @casein_user, :login, {:size => 30} %>
+		<%= casein_text_field form, @casein_user, :login, 
+		{:size => 30, :casein_label => t('label.user.login')} %>
 	</div>
 
 	<div class="tfContainer tfContainerSecond">
-		<%= casein_text_field form, @casein_user, :name %>
+		<%= casein_text_field form, @casein_user, :name,
+		:casein_label => t('label.user.name')  %>
 	</div>
 
 	<div class="tfContainer">
-		<%= casein_text_field form, @casein_user, :email %>
+		<%= casein_text_field form, @casein_user, :email,
+		:casein_label => t('label.user.email') %>
 	</div>
 
 	<div class="tfContainer tfContainerSecond">
 		<% if @session_user.is_admin? && CaseinUser.has_more_than_one_admin %>
-			<%= casein_select form, @casein_user, :access_level, casein_get_access_level_array, {:casein_label => "Status"} %>
+			<%= casein_select form, @casein_user, :access_level, casein_get_access_level_array,
+			{:casein_label => t('label.user.status')} %>
 		<% end %>
+	</div>
+
+	<div class="tfContainer">
+		<%= casein_select form, @casein_user, :ware_house_id, WareHouse.all.collect{|w| [w.name, w.id]},
+		:include_blank => true, :casein_label => t('label.user.ware_house') %>
 	</div>
 
 	<div class="clearer"></div>
