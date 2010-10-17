@@ -1,4 +1,9 @@
 <%= t 'label.inventory.goods_code' %>
 &nbsp;or&nbsp;
 <%= t 'label.inventory.goods_name' %>
-&nbsp;<%= text_field_tag :search , @search %>
+&nbsp;
+<%= text_field :keyword, :search %>
+&nbsp;
+<%= select :keyword, :ware_house , options_for_select(@ware_houses.map{|w| [w.name,w.id]}, @keyword.ware_house.to_i), {:include_blank => true} %>
+&nbsp;
+<%= submit_tag '検索' %>

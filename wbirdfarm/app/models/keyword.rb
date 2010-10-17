@@ -1,6 +1,6 @@
 class Keyword
 	KEYS = (
-		%w(search show_fixed work_no)
+		%w(search show_fixed work_no ware_house)
 	).freeze
 	
 	KEYS.each{|key| eval("attr_accessor :#{key}")}

@@ -2,7 +2,7 @@
 	<%= will_paginate @inventories, 
 		:previous_label => '<<前', :next_label => '次>>',
  		:renderer => 'RemoteLinkRenderer', 
-		:params => {:action => 'search', :search => @search}
+		:params => {:action => 'search'}
 	%>
 	<table width="100%">
 	<thead>
