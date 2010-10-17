@@ -1,4 +1,4 @@
-#チケット発行前のタスク覚書
+#summary チケット発行前のタスク覚書
 = Waacs Birdfarm =
  * 営業マン用のアカウントを作る。営業マン権限を用意。現在、Admin 、User
  * テストユーザ worker/test123
