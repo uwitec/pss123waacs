@@ -6,6 +6,14 @@ class Inventory < ActiveRecord::Base
 	PICKING_STYLE = %w(single total DAS CART).freeze
 	FIXED_TYPE = %w(確定 未決).freeze
 
+	def self.myhouse user
+		if user.is_admin?
+			Inventory.all
+		else
+			Inventory.ware_house_id_equals(user.ware_house_id)
+		end
+	end
+
 	def show_ware_house_name
 		self.ware_house.nil? ? '-' : self.ware_house.name
 	end

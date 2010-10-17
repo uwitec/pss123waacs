@@ -11,7 +11,7 @@
   color: #660000;
 }
 .pagination a:hover, .pagination a:active {
-  border: 1px solid #660000;
+  border: 1px solid #FF9999;
   color: #000;
 }
 .pagination span.current {
