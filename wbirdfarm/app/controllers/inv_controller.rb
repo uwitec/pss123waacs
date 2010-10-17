@@ -1,9 +1,11 @@
 class InvController < CaseinController
 	layout "bf"
   def index
+		list
   end
 
 	def list
-		@inventries = Inventry.find(:all)
+		@inventries = Inventory.all
+		@ware_houses = WareHouse.all
 	end
 end
