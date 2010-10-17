@@ -7,10 +7,11 @@ class CaseinInventoriesController < CaseinController
   # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
  
   def index
-		if request.get?
+		#if request.get?
 			@casein_page_title = 'Inventories'
-			@inventories = Inventory.paginate :all, :page => params[:page]
-		end
+			@search = params[:search]
+			@inventories = Inventory.goods_code_or_goods_name_or_location_like(@search).paginate :all, :page => params[:page]
+		#end
   end
  
   def new
