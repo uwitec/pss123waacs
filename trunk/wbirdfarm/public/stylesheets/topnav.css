@@ -21,6 +21,8 @@
 	margin: 0 10px 4px 10px;
 	text-decoration: none;
 	color: #EEEEEE;
+	border-bottom: 4px solid #660000;
+	padding-bottom: 2px;
 }
 
 #topnav a:link.active, #topnav a:visited.active, #topnav a:hover {

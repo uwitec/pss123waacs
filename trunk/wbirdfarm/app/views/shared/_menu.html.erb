@@ -1,10 +1,11 @@
 <%= link_menu_to "在庫照会", { :controller => "inv" } %>
-<%= link_menu_to "手動引当", { :controller => "order" } %>
-<%= link_menu_to "ピッキング指示", { :controller => "picking" } %>
+<%= link_menu_to "注文照会/登録", { :controller => "casein_orders" } %>
 <% if @session_user.is_admin? %>
+<%= link_menu_to "在庫調整", { :controller => "casein_inventories" } %>
 <%= link_menu_to "ピッキング計画", { :controller => "picking_plan" } %>
 <%= link_menu_to "EDI" , { :controller => "edi" }  %>
 <% end %>
+<%= link_menu_to "プロファイル" , { :controller => "casein_users",:action => :show,:id => @session_user.id } %>
 <%= link_menu_to "システム管理" , { :controller => "admin" } %>
 <%= link_to 'Logout', :controller => :casein_auth, :action => :logout %>
 

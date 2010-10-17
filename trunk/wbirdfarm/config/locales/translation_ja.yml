@@ -74,6 +74,12 @@ ja:
       form: 
         refresh: "最新を表示"
       message:
+        Back_to_list: "一覧に戻る"
+        Add_a_new_order: "新規注文を追加"
+        Add_a_new_inventory: "新規在庫を追加"
+        Add_a_new_shipping_address: "新規配送先を追加"
+        Add_a_new_ware_house: "新規倉庫を追加"
+        Add_a_new_region: "新規管轄地域を追加"
       user:
         login: "利用者ID"
         name: "利用者"
