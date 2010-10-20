@@ -68,7 +68,8 @@ div.loginBox {
 
 #dashboard {
 	position: absolute;
-	top: 15px;
+	/* top: 15px; */
+	top: 0px;
 	right: 25px;
 	font-size: 11px;
 }
@@ -116,14 +117,15 @@ div.loginBox {
 	color: #fff;
 	padding: 11px 12px 9px 12px;
 	/* background: url(/casein/images/nav.png) repeat-x bottom left; */
+	background : #990000;
 	text-decoration: none;
 }
 
 #navigation li a:hover {
   padding: 11px 12px 9px 12px;
 	/* background: url(/casein/images/nav.png) repeat-x top left; */
-	background : #FF9999;
-	color: #000;
+	background : #666633;
+	color: #fff;
 }
 
 #navigation .active a {
@@ -154,12 +156,15 @@ div.loginBox {
 	display: block;
 	padding: 12px 12px 10px 12px;
 	/* background: url(/casein/images/visitSiteNav.png) repeat-x top left; */
+	background : #990000;
 	text-decoration: none;
 }
 
 #altNavigation li a:hover {
 	/* background: url(/casein/images/visitSiteNav.png) repeat-x bottom left; */
-	color: #000;
+	/* color: #000; */
+	background : #666633;
+	color : #fff;
 }
 
 /* END OF HEADER */
@@ -173,7 +178,8 @@ div.loginBox {
 	width: 312px;
 	padding: 0 0 0 6px;
 	height: 100%;
-	background: url(/casein/images/rightNav.png) repeat-y top left;
+	/* background: url(/casein/images/rightNav.png) repeat-y top left; */
+	background: #CFCFA0;
 	z-index: 10;
 }
 
