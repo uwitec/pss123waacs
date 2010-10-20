@@ -22,7 +22,8 @@
 	bottom: 0;
 	left: 0;
 	right: 318px;
-	background: #fff;
+	/* background: #fff; */
+	background: #CFCFA0;
 	z-index: 10;
 	overflow: auto;
 }
@@ -129,7 +130,7 @@
 }
 
 #content .even {
-	background: #e7edfc;
+	/* background: #e7edfc; */
 }
 
 #content .tfContainer {
