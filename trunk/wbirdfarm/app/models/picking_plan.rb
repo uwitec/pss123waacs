@@ -109,8 +109,8 @@ class PickingPlan #< ActiveRecord::Base
 			data << PickingListCol
 			pdf = Report::PickingList.new
 		when 'feeding'
-			pdf = Report::FeedingList.new
 			data << FeedingListCol
+			pdf = Report::FeedingList.new
 		else
 			pdf = Report::PickingList.new
 		end
@@ -121,6 +121,15 @@ class PickingPlan #< ActiveRecord::Base
 		pdf.AddPage
 		pdf.contents
    	pdf.Output(pdf_name)
+		#
+		edi_file = EdiFile.new(
+			:class_name => 'shipping' + '/' + @report_type, 
+			:edi_code => self.picking_list_file_name,
+			:file_path => file_name,
+			:pdf_path => pdf_name,
+			:edi_at => @issued_at
+		)
+		edi_file.save
 	end
 
 	def picking_list_file_name

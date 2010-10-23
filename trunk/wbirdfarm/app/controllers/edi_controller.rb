@@ -18,6 +18,10 @@ class EdiController < CaseinController
 		render_page
 	end
 
+	def download
+		send_file params[:file]
+	end
+
 	def render_page
 		list
 		render :update do |page|

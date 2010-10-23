@@ -30,4 +30,8 @@ class EdiFile < ActiveRecord::Base
 		PickingPlan.new.allocate_total
 		PickingPlan.new.allocate_single
 	end
+
+	def show_class_name
+		self.class_name
+	end
 end
