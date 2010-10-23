@@ -1,4 +1,5 @@
 class PickingPlan #< ActiveRecord::Base
+	require "csv"
 	# cf) picking_list format
 	#  0              1           2           3         4         5         6
 	# [customer_code, store_code, goods_code, location, pick_qty, order.id, inventory.id]
@@ -11,8 +12,21 @@ class PickingPlan #< ActiveRecord::Base
 	#  0              1(1)        2(2)        3(4)      4(5)
 	# [customer_code, store_code, goods_code, pick_qty, order.id]
 	
+	PickingListCol = %w(customer_code store_code goods_code location pick_qty order.id inventory.id).freeze
+	TotalPickingListCol = %w(customer_code goods_code location pick_qty inventory.id).freeze
+	FeedingListCol = %w(customer_code store_code goods_code pick_qty order.id).freeze
+	
+	attr_accessor :issued_at, :tag, :report_type
+
+	def initialize tag = ''
+		@tag = tag
+		@report_type = ''
+		@issued_at = DateTime.now
+	end
+
 	# total picking order allocation
-	def self.allocate_total
+	def allocate_total
+		self.report_type = 'total'
 		orders = Order.not_allocated.picking('total')
 		return false if orders.size == 0
 		pickings = self.allocate(orders)
@@ -36,19 +50,22 @@ class PickingPlan #< ActiveRecord::Base
 				feedings[p.values_at(0,1,2,4,5)] = p.values_at(0,1,2,4,5) 			
 			end
 		end
+		self.report_type = 'feeding'
 		self.show_picking_list(feedings.values.sort{|a,b| a[0,1] <=> b[0,1]})
 	end
 
 	# single picking order allocation
-	def self.allocate_single
+	def allocate_single
 		# todo sort or weight 
+		self.report_type = 'single'
 		orders = Order.not_allocated.picking('single')
 		return false if orders.size == 0
 		picking_list = self.allocate(orders)
+		self.report_type = 'single'
 		self.show_picking_list(picking_list.sort{|a,b| a.values_at(2,3,4,1) <=> b.values_at(2,3,4,1)})
 	end
 
-	def self.allocate orders	
+	def allocate orders	
 		picking_list = []
 		orders.each do |order|
 			balance_qty = order.order_qty
@@ -80,10 +97,27 @@ class PickingPlan #< ActiveRecord::Base
 		orders.each{|order| order.allocate_status = '';order.save}
 	end
 
-	def self.show_picking_list report = []
+	def show_picking_list report = []
 		report.each do |line|
 			line.each{ |item| $stdout.printf "%10s", item}
 			$stdout.print("\n")
 		end	
+		file_name = $EXPORT_DIR + '/' + picking_list_file_name + '.csv'
+		CSV.open(file_name, "w") do |csv|
+			case @report_type
+			when 'total'
+				csv << TotalPickingListCol
+			when 'single'
+				csv << PickingListCol
+			when 'feeding'
+				csv << FeedingListCol
+			else
+			end
+			report.each{|item| csv << item}
+		end
+	end
+
+	def picking_list_file_name
+		'PL' + @tag.upcase + @report_type.upcase + @issued_at.strftime('%Y%m%d')
 	end
 end
