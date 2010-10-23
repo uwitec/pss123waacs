@@ -27,7 +27,7 @@ class EdiFile < ActiveRecord::Base
 	end
 	
 	def self.shipping
-		PickingPlan.allocate_total
-		PickingPlan.allocate_single
+		PickingPlan.new.allocate_total
+		PickingPlan.new.allocate_single
 	end
 end
