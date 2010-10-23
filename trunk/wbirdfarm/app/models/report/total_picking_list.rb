@@ -1,4 +1,4 @@
-class Report::PickingList < JpReport
+class Report::TotalPickingList < JpReport
 	require 'nkf'
 	attr_accessor :picks
 
@@ -18,7 +18,7 @@ class Report::PickingList < JpReport
 
 		rect_main
 		set_start_on
-		wls('出荷明細');bLF
+		wls('一括出荷指示');bLF
 
 		@picks.each do |p|
 			wls(p.join("\s"));bLF	
