@@ -5,6 +5,7 @@
 			<th><%= t('label.edi_file.ware_house') %></th>
 			<th><%= t('label.edi_file.class_name') %></th>
 			<th><%= t('label.edi_file.edi_code') %></th>
+			<th>&nbsp;</th>
 			<th><%= t('label.edi_file.edi_at') %></th>
 			<th><%= t('label.edi_file.device') %></th>
 			<th><%= t('label.edi_file.show_status') %></th>
@@ -14,7 +15,7 @@
 	<tbody>
 		<% for edi_file in @edi_files %>
 			<tr>
-				<td><%= edi_file.show_ware_house_name %></td>
+				<td><!-- %= edi_file.show_ware_house_name % --></td>
 				<td><%= edi_file.show_class_name %></td>
 				<td>
 					<% if File.exist?(edi_file.file_path) %>
@@ -23,9 +24,16 @@
 						<%= edi_file.edi_code %>
 					<% end %>
 				</td>
+				<td>
+					<% if File.exist?(edi_file.pdf_path) %>
+						<%= link_to 'PDF', {:action => 'download', :file => edi_file.pdf_path} %>
+					<% else %>
+						-
+					<% end %>
+				</td>
 				<td><%= show_time edi_file.edi_at %></td>
-				<td><%= edi_file.device_name %></td>
-				<td><%= edi_file.status %></td>
+				<td><!-- %= edi_file.device_name % --></td>
+				<td><!-- %= edi_file.status % --></td>
 				<td>&nbsp;</td>
 			</tr>
 		<% end %>
