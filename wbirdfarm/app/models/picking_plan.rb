@@ -98,11 +98,9 @@ class PickingPlan #< ActiveRecord::Base
 	end
 
 	def show_picking_list report = []
-		report.each do |line|
-			line.each{ |item| $stdout.printf "%10s", item}
-			$stdout.print("\n")
-		end	
 		file_name = $EXPORT_DIR + '/' + picking_list_file_name + '.csv'
+		pdf_name = $EXPORT_DIR + '/' + picking_list_file_name + '.pdf'
+		# file
 		CSV.open(file_name, "w") do |csv|
 			case @report_type
 			when 'total'
@@ -114,6 +112,17 @@ class PickingPlan #< ActiveRecord::Base
 			else
 			end
 			report.each{|item| csv << item}
+		end
+		case @report_type
+		when 'total'
+		when 'single'
+			pdf = Report::PickingList.new
+			pdf.picks = report
+			pdf.AddPage
+			pdf.contents
+    	pdf.Output(pdf_file)
+		when 'feeding'
+		else
 		end
 	end
 
