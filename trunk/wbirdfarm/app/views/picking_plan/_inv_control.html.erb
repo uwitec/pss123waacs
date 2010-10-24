@@ -1,14 +1,43 @@
 <div class="list">
-<table width="60%">
-	<thead>
-	</thead>
-	<tbody>
-		<tr>
-			<td>引当リセット(全倉庫)</td>
-			<td class="num">
-				<%= button_to_remote '実行', :url => {:action => 'reset_allocate'} %>
-			</td>
-		</tr>
-	</tbody>
-</table>
+	<table width="80%">
+		<thead>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>引当リセット(全倉庫)</td>
+				<td class="num">
+					<%= button_to_remote '実行', :url => {:action => 'reset_allocate'} %>
+				</td>
+			</tr>
+
+			<tr>
+				<td>シングルオーダピッキングのみ出荷指示作成(全在庫)</td>
+				<td class="num">
+					<%= button_to_remote '実行', :url => {:action => 'allocate_single'} %>
+				</td>
+			</tr>
+
+			<tr>
+				<td>トータルオーダピッキングのみ出荷指示作成(全在庫)</td>
+				<td class="num">
+					<%= button_to_remote '実行', :url => {:action => 'allocate_total'} %>
+				</td>
+			</tr>
+
+			<% form_remote_tag :url => {:action => :change_picking_style} do %>
+			<tr>
+				<td>
+					顧客単位ピッキング方式変更
+					<%= select_tag :customer_code ,options_for_select(customer_list + [''], @customer_code) %>
+					<%= select_tag :picking_style ,options_for_select(Inventory::PICKING_STYLE + [''], @picking_style)  %>
+				</td>
+				<td class="num">
+					<%= submit_tag "変更" %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>
