@@ -21,4 +21,8 @@ module ApplicationHelper
 		html_options = {:class => 'active'}.merge(html_options) if current_page?(options)
 		link_to name, options, html_options
 	end
+
+	def customer_list
+		customers = ShippingAddress.all.map{|c| [c.customer_code] }.uniq.compact
+	end
 end
