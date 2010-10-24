@@ -182,3 +182,28 @@ body {
 	color : #fff;
 	background : #666633;
 }
+
+.panel {
+}
+
+.panel .part {
+	float:left;
+	padding : 2px;
+	border: 1px solid #666; 
+	margin: 5px;
+}
+
+.panel table {
+}
+
+.panel table th{
+	background : #660000;
+	color : #fff;
+	font-weight : bold;
+	padding : 3px;
+}
+
+.panel table td{
+	padding : 2px;
+	border-bottom: 1px solid #666; 
+}
