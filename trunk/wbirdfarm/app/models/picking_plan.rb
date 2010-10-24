@@ -15,6 +15,14 @@ class PickingPlan #< ActiveRecord::Base
 	PickingListCol = %w(customer_code store_code goods_code location pick_qty order.id inventory.id).freeze
 	TotalPickingListCol = %w(customer_code goods_code location pick_qty inventory.id).freeze
 	FeedingListCol = %w(customer_code store_code goods_code pick_qty order.id).freeze
+
+	LIST_TYPE = [
+		%w(商品別(一括) total),
+		%w(店舗別 single),
+		%w(店舗別(一括) feeding),
+		%w(DAS das),
+		%w(カート cart)
+	].freeze
 	
 	attr_accessor :issued_at, :tag, :report_type
 
@@ -123,8 +131,9 @@ class PickingPlan #< ActiveRecord::Base
    	pdf.Output(pdf_name)
 		#
 		edi_file = EdiFile.new(
-			:class_name => 'shipping' + '/' + @report_type, 
+			:class_name => 'shipping',
 			:edi_code => self.picking_list_file_name,
+			:edi_sub_code => @report_type, 
 			:file_path => file_name,
 			:pdf_path => pdf_name,
 			:edi_at => @issued_at

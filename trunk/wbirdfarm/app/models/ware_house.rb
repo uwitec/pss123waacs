@@ -3,6 +3,7 @@ class WareHouse < ActiveRecord::Base
 	has_many :orders
 	has_many :shipping_addresses
 	has_many :casein_users
+	has_many :edi_files
 	belongs_to :region	
 
 	validates_uniqueness_of :code
