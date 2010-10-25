@@ -184,6 +184,8 @@ body {
 }
 
 .panel {
+	display:block;
+	height:200px;
 }
 
 .panel .part {
