@@ -9,6 +9,7 @@ ja:
       ware_house: "倉庫"
       user: "登録者"
       edi_file: "電子データ交換"
+      number_master: "採番管理"
 
     attributes: 
       good: 
@@ -164,3 +165,11 @@ ja:
         edi_at: "実行時刻"
         device: "物流機器"
         show_status: "ステータス"
+
+      number_master:
+        code: "識別子"
+        name: "名称"
+        last_num: "最新番号"
+        surfix: "先頭記号"
+        max_num: "最大値"
+        min_num: "最小値"

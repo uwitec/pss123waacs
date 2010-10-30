@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :shipping_addresses
 
 	CaseinAddRoutes::mapper map
+  map.resources :casein_number_masters
   map.resources :casein_orders
   map.resources :casein_shipping_addresses
   map.resources :casein_inventories
