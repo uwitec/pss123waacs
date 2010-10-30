@@ -1,14 +1,18 @@
 class Edi
 	require "csv"
+	require "fileutils"
 	attr_accessor :lines
 	
 	def initialize
 		@lines = []
 	end
 
-	def order_file
-		$IMPORT_DIR + "order.csv"
-		RAILS_ROOT + '/test/fixtures/test_order.csv' if RAILS_ENV=="development"
+	def set_order_file
+		file = $IMPORT_DIR + '/order-' + Date.today.strftime("%Y%m%d") + '.csv'
+		if RAILS_ENV=="development"
+			FileUtils.cp RAILS_ROOT + '/test/fixtures/test_order.csv' , file
+		end
+		file
 	end
 
 	def order_file_yml
@@ -16,7 +20,7 @@ class Edi
 	end
 	
 	def receive_order 
-		file = order_file
+		file = set_order_file
 		return false unless File.exist?(file)
 		ymls = YAML::load_file(order_file_yml)
 		tables = %w(shipping_addresses inventories orders)
@@ -42,15 +46,17 @@ class Edi
 			shipping_address.save
 		end	
 		#
-		@inventories_records.each do |r|
-			inventory = Inventory.new(r)
-			inventory.location = '9999'
-			inventory.is_fixed = false
-			inventory.save
-		end
+		#@inventories_records.each do |r|
+		#	inventory = Inventory.new(r)
+		#	inventory.location = '9999'
+		#	inventory.is_fixed = false
+		#	inventory.save
+		#end
 		#
 		@orders_records.each do |r|
-			order = Order.new(r)
+			unless order = Order.find_by_goods_code_and_order_no(r[:goods_code],r[:order_no])
+				order = Order.new(r)
+			end
 			if order.save
 				if shipping_address = ShippingAddress.find_by_code(order.store_code)	
 					shipping_address.orders << order
@@ -58,6 +64,16 @@ class Edi
 				order.set_ware_house
 			end
 		end
+		# edi_file
+		edi_file = EdiFile.new(
+			:class_name => 'ordering',
+			:edi_code => File.basename(file,'.*'),
+			:edi_sub_code => '',
+			:file_path => file,
+			:pdf_path => '',
+			:edi_at => DateTime.now
+		)
+		edi_file.save 
 	end
 
 	def self.set_ware_house

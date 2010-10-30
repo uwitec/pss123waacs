@@ -19,14 +19,14 @@
 				<td><%= edi_file.show_class_name %></td>
 				<td><%= edi_file.show_sub_class_name %></td>
 				<td>
-					<% if File.exist?(edi_file.file_path) %>
+					<% if File.exist?(edi_file.file_path.to_s) %>
 						<%= link_to edi_file.edi_code, {:action => 'download', :file => edi_file.file_path} %>
 					<% else %>
 						<%= edi_file.edi_code %>
 					<% end %>
 				</td>
 				<td>
-					<% if File.exist?(edi_file.pdf_path) %>
+					<% if File.exist?(edi_file.pdf_path.to_s) %>
 						<%= link_to 'PDF', {:action => 'download', :file => edi_file.pdf_path} %>
 					<% else %>
 						-
