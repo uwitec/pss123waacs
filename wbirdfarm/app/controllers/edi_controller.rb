@@ -6,7 +6,7 @@ class EdiController < CaseinController
 
 	def list
 		@ware_houses = WareHouse.all
-		@edi_files = EdiFile.all
+		@edi_files = EdiFile.find(:all, :order => 'edi_at desc', :limit => 20)
 	end
 
 	def refresh
