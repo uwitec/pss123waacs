@@ -12,9 +12,9 @@ class PickingPlan #< ActiveRecord::Base
 	#  0              1(1)        2(2)        3(4)      4(5)
 	# [customer_code, store_code, goods_code, pick_qty, order.id]
 	
-	PickingListCol = %w(customer_code store_code goods_code location pick_qty order.id inventory.id).freeze
+	PickingListCol = %w(customer_code store_code goods_code location pick_qty order.id inventory.id work_no).freeze
 	TotalPickingListCol = %w(customer_code goods_code location pick_qty inventory.id).freeze
-	FeedingListCol = %w(customer_code store_code goods_code pick_qty order.id).freeze
+	FeedingListCol = %w(customer_code store_code goods_code pick_qty order.id work_no).freeze
 
 	LIST_TYPE = [
 		%w(商品別(一括) total),
@@ -34,7 +34,6 @@ class PickingPlan #< ActiveRecord::Base
 
 	# total picking order allocation
 	def allocate_total
-		self.report_type = 'total'
 		orders = Order.not_allocated.picking('total')
 		return false if orders.size == 0
 		pickings = self.allocate(orders)
@@ -47,7 +46,8 @@ class PickingPlan #< ActiveRecord::Base
 				total_pickings[p.values_at(0,2,3,4,6)] = p.values_at(0,2,3,4,6) 			
 			end
 		end
-		self.show_picking_list(total_pickings.values)
+		self.report_type = 'total'
+		self.show_picking_list(total_pickings.values.sort{|a,b| a.values_at(0,1,2,3) <=> b.values_at(0,1,2,3)})
 
 		# feeding_list
 		feedings = {}
@@ -58,19 +58,37 @@ class PickingPlan #< ActiveRecord::Base
 				feedings[p.values_at(0,1,2,4,5)] = p.values_at(0,1,2,4,5) 			
 			end
 		end
+		#work No set
+		last_work_no = '';last_customer_code = ''; last_store_code = ''
+		feedings.values.sort{|a,b| a.values_at(0,1) <=> b.values_at(0,1)}.each do |pi|
+			unless (pi[0] == last_customer_code and pi[1] == last_store_code)
+				last_work_no = NumberMaster.new_picking_work_no	
+				last_customer_code = pi[0]
+				last_store_code = pi[1]
+			end
+			pi.push last_work_no
+		end
 		self.report_type = 'feeding'
-		self.show_picking_list(feedings.values.sort{|a,b| a[0,1] <=> b[0,1]})
+		self.show_picking_list(feedings.values.sort{|a,b| a.values_at(0,1) <=> b.values_at(0,1)})
 	end
 
 	# single picking order allocation
 	def allocate_single
 		# todo sort or weight 
-		self.report_type = 'single'
 		orders = Order.not_allocated.picking('single')
 		return false if orders.size == 0
 		picking_list = self.allocate(orders)
+		#work No set
+		last_work_no = '';last_customer_code = ''
+		picking_list.sort{|a,b| a.values_at(0,1,3) <=> b.values_at(0,1,3)}.each do |pi|
+			unless pi[0] == last_customer_code
+				last_work_no = NumberMaster.new_picking_work_no	 
+				last_customer_code = pi[0]
+			end
+			pi.push last_work_no
+		end
 		self.report_type = 'single'
-		self.show_picking_list(picking_list.sort{|a,b| a.values_at(2,3,4,1) <=> b.values_at(2,3,4,1)})
+		self.show_picking_list(picking_list.sort{|a,b| a.values_at(0,1,3) <=> b.values_at(0,1,3)})
 	end
 
 	def allocate orders	
@@ -123,8 +141,9 @@ class PickingPlan #< ActiveRecord::Base
 			pdf = Report::PickingList.new
 		end
 		data += report
-		# file
+		# csv file
 		CSV.open(file_name, "w"){ |csv| data.each{|item| csv << item} }
+		# pdf file
 		pdf.picks = data
 		pdf.AddPage
 		pdf.contents
