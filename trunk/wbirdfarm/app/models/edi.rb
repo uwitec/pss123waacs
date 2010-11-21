@@ -16,7 +16,7 @@ class Edi
 	end
 
 	def order_file_yml
-		RAILS_ROOT + '/config/edi_order_file.yml'
+		RAILS_ROOT + '/config/import_file/edi_order_file.yml'
 	end
 	
 	def receive_order 
