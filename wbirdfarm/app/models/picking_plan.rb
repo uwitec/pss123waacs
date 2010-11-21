@@ -130,19 +130,24 @@ class PickingPlan #< ActiveRecord::Base
 		case @report_type
 		when 'total'
 			data << TotalPickingListCol
+			make_ship_order_file file_name, TotalPickingListCol, report
 			pdf = Report::TotalPickingList.new
 		when 'single'
 			data << PickingListCol
+			make_ship_order_file file_name, PickingListCol, report
 			pdf = Report::PickingList.new
 		when 'feeding'
 			data << FeedingListCol
+			make_ship_order_file file_name, FeedingListCol, report
 			pdf = Report::FeedingList.new
 		else
+			data << PickingListCol
+			make_ship_order_file file_name, PickingListCol, report
 			pdf = Report::PickingList.new
 		end
 		data += report
 		# csv file
-		CSV.open(file_name, "w"){ |csv| data.each{|item| csv << item} }
+		# CSV.open(file_name, "w"){ |csv| data.each{|item| csv << item} }
 		# pdf file
 		pdf.picks = data
 		pdf.AddPage
@@ -158,6 +163,23 @@ class PickingPlan #< ActiveRecord::Base
 			:edi_at => @issued_at
 		)
 		edi_file.save
+	end
+	
+	def make_ship_order_file file_path, col_keys, report = []
+		cols = YAML.load_file(RAILS_ROOT + '/config/export_file/ship_order.yml')['format']
+		keys = cols.sort{|a,b| a[1]['index'] <=> b[1]['index']}.map{|x| x[0]}
+		
+		CSV.open(file_path,"w") do |csv|
+			report.each do |d|
+				data_set = col_keys.zip(d)
+				new_data = []
+				keys.each do |key|
+					val = (begin data_set.assoc(key)[1] rescue "" end)	
+					new_data.push val
+				end
+				csv << new_data
+			end
+		end
 	end
 
 	def picking_list_file_name

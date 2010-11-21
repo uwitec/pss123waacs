@@ -24,7 +24,7 @@ format :
     index  : 5
     value  :
     action :
-  order_qty :
+  pick_qty :
     index  : 6
     value  :
     action :
