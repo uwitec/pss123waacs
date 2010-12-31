@@ -21,7 +21,7 @@ module ExportFile
 		lines
 	end
 
-	def export_file file , records, config_file = nil
+	def export_file file , records, config_file = nil, after_work = true
 		work_before_export file
 		export_file_name = file
 		config_file_name = export_config_file_name
@@ -35,7 +35,7 @@ module ExportFile
 		file_type = (config["common"]["file_type"] || "csv")
 		
 		if file_type == "csv"
-			CSV.open(export_file_name , "w"){ |csv|
+			CSV.open(export_file_name , "a"){ |csv|
 				index_sorted_name = []
 				format.each do |col_name, detail| 
 					index_sorted_name.push [detail["start"], col_name, detail["view"], detail["action"]]
@@ -59,7 +59,7 @@ module ExportFile
 				end
 			}
 		else
-			File.open(export_file_name , "w"){ |f|
+			File.open(export_file_name , "a"){ |f|
 				records.each do |r|
 					line = "\s" * total_size
 					format.each do |col_name,detail|
@@ -74,14 +74,14 @@ module ExportFile
 							v = v.to_s.strip.rjust(col_size, "\s")[-1 * col_size , col_size]
 						else
 							v = v.to_s.ljust(col_size, "\s")[0, col_size]
-						end	
+						end
 						line[ col_start - 1, col_size ] = v
 					end	
 					f.write line + "\n"
 				end
 			}		
 		end
-		work_after_export
+		work_after_export if after_work
 	end
 
 	def exchange_fix_to_csv  fix_file, csv_file

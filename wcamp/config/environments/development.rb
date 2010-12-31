@@ -17,8 +17,11 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 config.after_initialize do 
+	$WareHouseCode = "WH01" # should not use "-"
 	$IMPORT_DIR = RAILS_ROOT + '/tmp'
 	$EXPORT_DIR = RAILS_ROOT + '/tmp'
-	$BACKUP_DIR = RAILS_ROOT
+	$BACKUP_DIR = RAILS_ROOT + '/backup'
 	$USR_DIR = RAILS_ROOT + '/tmp'
+	$UPLOAD_DIR = RAILS_ROOT + "/tmp"
+	$DOWNLOAD_DIR = RAILS_ROOT + "/tmp"
 end

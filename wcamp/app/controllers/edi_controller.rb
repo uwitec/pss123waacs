@@ -17,6 +17,16 @@ class EdiController < CaseinController #ApplicationController
 		render_page
 	end
 
+	def upload_start
+		Edi.new.upload_file "shipped"	
+		render_page
+	end
+
+	def download_start
+		Edi.new.download_file "shipping"	
+		render_page
+	end
+
 	def download
 		send_file params[:file]
 	end

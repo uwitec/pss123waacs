@@ -1,4 +1,5 @@
 class EdiFile < ActiveRecord::Base
+	# [name , TAG ]
 	EDI_TYPE = [
 		%w(出荷指示 shipping),
 		%w(出荷実績 shipped),
@@ -67,11 +68,14 @@ class EdiFile < ActiveRecord::Base
 	end
 
 	def self.shipped
-		export_file = $EXPORT_DIR + '/' + 'ship.dat'
+		tag = "shipped"
+		export_file = $EXPORT_DIR + '/' + $WareHouseCode + "-" + tag + "-" + DateTime.now.strftime("%Y%m%d%H%M%S") + ".csv"
+		upload_file = $EXPORT_DIR + '/' + $WareHouseCode + "-" + tag + ".csv"
 		ships = ShipOrder.find(:all, 
 			:conditions => {:status => '50'}, :order => 'work_no, work_line_no')
 		if ShipOrder.new.export_file export_file, ships, 'ship_order.yml'	
 			ships.each{|s| s.status = '90'; s.save}
+			ShipOrder.new.export_file upload_file, ships, 'ship_order.yml', false
 		end
 	end
 

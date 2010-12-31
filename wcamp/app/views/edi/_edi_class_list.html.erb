@@ -24,4 +24,24 @@
 	<% end %>
 </tbody>
 </table>
+<br/>
+<h2>EDI 手動実行</h2>
+<table width="100%">
+<thead>
+	<tr>
+		<th><%= t('label.edi.class_name') %></th>
+		<th><%= t('label.edi.rake_name') %></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>アップロード</td>
+		<td class="num"><%= button_to_remote '手動実行', :url => {:action => 'upload_start'} %></td>
+	</tr>
+	<tr>
+		<td>ダウンロード</td>
+		<td class="num"><%= button_to_remote '手動実行', :url => {:action => 'download_start'} %></td>
+	</tr>
+</tbody>
+</table>
 </div>
