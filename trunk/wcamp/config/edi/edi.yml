@@ -2,5 +2,5 @@
   :host : "birdfarm.miyabiit.com"
   :user : birdfarm
   :pass : birdfarm@waacs
-  :send_dir : "home/birdfarm/send"
+  :send_dir : "/home/birdfarm/send"
   :receive_dir : "/home/birdfarm/receive"

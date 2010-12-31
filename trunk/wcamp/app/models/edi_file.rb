@@ -8,6 +8,8 @@ class EdiFile < ActiveRecord::Base
 		%w(棚卸計画 stock_keeping),
 		%w(在庫一覧 inventories)
 	].freeze
+		# %w(受注 ordering),	
+		# %w(棚卸実績 stock_keeping_result),
 	
 	# class_name => [class status ... ]
 	TAG_CLASS = {
@@ -107,5 +109,4 @@ class EdiFile < ActiveRecord::Base
 
 	def self.inventries
 	end
-	
 end
