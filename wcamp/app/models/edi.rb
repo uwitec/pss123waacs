@@ -8,11 +8,15 @@ class Edi
 	end
 	
 	def self.before_upload tag
-				
 	end
 
 	def self.after_upload tag
-	
+	end
+
+	def self.before_download tag
+	end
+
+	def self.after_download tag
 	end
 	
 	def upload_file tag = ""
@@ -43,12 +47,23 @@ class Edi
 		pass = @config[:birdfarm][:pass]
 		#
 		Edi.before_download tag
-		local_file = $DOWNLOAD_DIR + tag + "-" + $WareHouseCode + ".csv"
-		remote_file = @config["birdfarm"]["send_dir"] + "/" + tag + "-" + $WareHouseCode + ".csv"
-		return false unless File.exist?(local_file)
-		Net::SFTP.start(host, user, :password => pass) do |ssh|
-			if ssh.download!(local_file, remote_file)	
-				# ssh.exec!("touch test.txt")
+		remote_dir = @config[:birdfarm][:send_dir] 
+		remote_file = $WareHouseCode + "-" + tag + '*'
+		local_dir = $DOWNLOAD_DIR 
+		
+		Net::SFTP.start(host, user, :password => pass) do |sftp|
+			begin
+				sftp.dir.glob(remote_dir,remote_file) do |e| 
+					#unless sftp.stat(e).directory?
+						remote_file = remote_dir + '/' + e.name
+						local_file = local_dir + '/' + $WareHouseCode + "-" + tag + "-" + Date.now.strftime("%Y%m%d%H%M%S") + File.extname(e.name)
+						if sftp.download!(remote_file, local_file)
+							sftp.remove!(remote_file)
+						end
+					#end
+				end
+			rescue 
+				RAILS_DEFAULT_LOGGER.error $!
 			end
 		end
 		Edi.after_upload tag
