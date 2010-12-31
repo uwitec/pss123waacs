@@ -1,25 +1,56 @@
+require "net/ssh"
+require "net/sftp"
+require "fileutils"
 class Edi
 
 	def initialize
-		@host = "http://www.miyabiit.com"
-		@user = "baker"
-		@pass = "street221b"
-		@get_dir = "/var/www/html/wbirdfirm/tmp/"
-		@put_dir = "/var/www/html/wbirdfirm/tmp/"
+		@config = YAML.load_file(RAILS_ROOT + "/config/edi/edi.yml")
 	end
 	
-	def self.get_bf_files
-		Net::SSH.start(@host, @user, :password => @pass) do |ssh|
-			scp.download!	
+	def self.before_upload tag
+				
 	end
 
-	def put_bf_file file
-		return false unless File.exist?(file)
-		remote_file = @put_dir  + '/' + DateTime.now.strftime('%Y%m%d%H%M') + '-' + File.basename(file)
-		Net::SSH.start(@host, @user, :password => @pass) do |ssh|
-			if ssh.upload!(file, remote_file)			
+	def self.after_upload tag
+	
+	end
+	
+	def upload_file tag = ""
+		RAILS_DEFAULT_LOGGER.debug @config
+		host = @config[:birdfarm][:host]
+		user = @config[:birdfarm][:user]
+		pass = @config[:birdfarm][:pass]
+		#
+		Edi.before_upload tag
+		local_file = $UPLOAD_DIR + '/' + $WareHouseCode + "-" + tag + ".csv"
+		remote_file = @config[:birdfarm][:receive_dir] + "/" + $WareHouseCode + "-" + tag + ".csv"
+		unless File.exist?(local_file)
+			RAILS_DEFAULT_LOGGER.error "no file for upload"
+			return false 
+		end
+		Net::SFTP.start(host, user, :password => pass) do |sftp|
+			if sftp.upload!(local_file, remote_file)			
+				backup_file = $BACKUP_DIR + "/" + File.basename(local_file,".csv") + "-" + DateTime.now.strftime("%Y%m%d%H%M%S") + ".csv.bak"
+				FileUtils.mv local_file , backup_file
+			end
+		end
+		Edi.after_upload tag
+	end
+	
+	def download_file tag = ""
+		host = @config[:birdfarm][:host]
+		user = @config[:birdfarm][:user]
+		pass = @config[:birdfarm][:pass]
+		#
+		Edi.before_download tag
+		local_file = $DOWNLOAD_DIR + tag + "-" + $WareHouseCode + ".csv"
+		remote_file = @config["birdfarm"]["send_dir"] + "/" + tag + "-" + $WareHouseCode + ".csv"
+		return false unless File.exist?(local_file)
+		Net::SFTP.start(host, user, :password => pass) do |ssh|
+			if ssh.download!(local_file, remote_file)	
 				# ssh.exec!("touch test.txt")
 			end
 		end
+		Edi.after_upload tag
 	end
 end

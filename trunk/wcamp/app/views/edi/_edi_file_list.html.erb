@@ -6,14 +6,13 @@
 			<th><%= t('label.edi_file.edi_code') %></th>
 			<th><%= t('label.edi_file.edi_at') %></th>
 			<th><%= t('label.edi_file.device') %></th>
-			<th><%= t('label.edi_file.show_status') %></th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% for edi_file in @edi_files %>
 			<tr>
-				<td><%= edi_file.show_class_name %></td>
+				<td nowrap><%= edi_file.show_class_name %></td>
 				<td>
 					<% if File.exist?(edi_file.file_path) %>
 						<%= link_to edi_file.edi_code, {:action => 'download', :file => edi_file.file_path} %>
@@ -21,9 +20,8 @@
 						<%= edi_file.edi_code %>
 					<% end %>
 				</td>
-				<td><%= show_time edi_file.edi_at %></td>
+				<td nowrap><%= show_time edi_file.edi_at %></td>
 				<td><%= edi_file.device_name %></td>
-				<td><%= edi_file.status %></td>
 				<td>&nbsp;</td>
 			</tr>
 		<% end %>
