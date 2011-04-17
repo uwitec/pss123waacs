@@ -1,6 +1,7 @@
 class EdiFile < ActiveRecord::Base
 	belongs_to :ware_house
 
+	# [name, tag]
 	EDI_IN_TYPE = [
 		%w(受注 ordering),
 		%w(出荷実績 shipped),
@@ -8,13 +9,14 @@ class EdiFile < ActiveRecord::Base
 	].freeze
 		# %w(棚卸実績 stock_keeping_result)
 
+	# [name, tag]
 	EDI_OUT_TYPE = [
 		%w(出荷指示 shipping),
 		%w(入荷予定 receiving)
 	].freeze
-
 		# %w(在庫一覧 inventories),
 		# %w(棚卸計画 stock_keeping),
+
 	def self.show_status tag
 		edi_file = EdiFile.first(:conditions => {:class_name => tag}, :order => "edi_at desc")
 		edi_file ? edi_file.status : nil 
